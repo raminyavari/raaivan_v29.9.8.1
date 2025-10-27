@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Experts>
+  <Expert nodetypeid="[NodeTypeAdditionalID]" nodeid="[NodeAdditionalID]" username="[UserName]"></Expert>
+  <Expert nodetypeid="6" nodeid="45" username="1234"></Expert>
+</Experts>

@@ -1,0 +1,32 @@
+USE [EKM_App]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+
+CREATE TABLE [dbo].[LG_ErrorLogs](
+	[LogID] [bigint] IDENTITY(1,1) NOT NULL,
+	[UserID] [uniqueidentifier] NULL,
+	[Subject] [varchar](1000) NOT NULL,
+	[Description] [nvarchar](2000) NULL,
+	[Date] [datetime] NOT NULL,
+	[ModuleIdentifier] [varchar](20) NULL
+ CONSTRAINT [PK_LG_ErrorLogs] PRIMARY KEY CLUSTERED 
+(
+	[LogID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

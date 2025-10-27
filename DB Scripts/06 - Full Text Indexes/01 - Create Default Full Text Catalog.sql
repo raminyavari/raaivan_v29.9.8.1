@@ -1,0 +1,12 @@
+USE [EKM_App]
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.fulltext_catalogs WHERE [name] = 'Default_Catalog') BEGIN
+	CREATE FULLTEXT CATALOG [Default_Catalog]WITH ACCENT_SENSITIVITY = OFF
+	AS DEFAULT
+	AUTHORIZATION [dbo]
+END
+
+GO
+
+

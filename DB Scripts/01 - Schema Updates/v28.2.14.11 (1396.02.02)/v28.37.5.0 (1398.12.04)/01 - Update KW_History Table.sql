@@ -1,0 +1,27 @@
+USE [EKM_App]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+ALTER TABLE [dbo].[KW_History]
+ADD [ReplyToHistoryID] [bigint] NULL
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+ALTER TABLE [dbo].[KW_History]  WITH CHECK ADD  CONSTRAINT [FK_KW_History_KW_History_ReplyToHistoryID] FOREIGN KEY([ReplyToHistoryID])
+REFERENCES [dbo].[KW_History] ([ID])
+GO
+
+ALTER TABLE [dbo].[KW_History] CHECK CONSTRAINT [FK_KW_History_KW_History_ReplyToHistoryID]
+GO

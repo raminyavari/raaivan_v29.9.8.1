@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Relations>
+  <Relation nodetypeid="[NodeTypeAdditionalID]" nodeid="[NodeAdditionalID]"
+            relatednodetypeid="[NodeTypeAdditionalID]" relatedid="[NodeAdditionalID]">
+  </Relation>
+  <Relation nodetypeid="6" nodeid="1234" relatednodetypeid="5" relatedid="4321"></Relation>
+</Relations>

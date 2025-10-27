@@ -1,0 +1,2591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D91392A2-ED28-445B-B8F7-A3719CD2DFB4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RaaiVan.Web</RootNamespace>
+    <AssemblyName>RaaiVan.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerLaunchUrl>http://{ServiceIPAddress}</DockerLaunchUrl>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <ExcludeApp_Data>false</ExcludeApp_Data>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=2.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.2.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.13.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.13.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.5.0\lib\net461\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.54.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.54.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.54.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.54.0\lib\net461\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.54.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.54.0\lib\net461\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.54.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.54.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.54.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.54.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.36.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.36\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.2.10, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.3.2\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.AWT.WinForms, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.AWT.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Beans, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Beans.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Charsets, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Charsets.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Corba, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Corba.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Jdbc, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Jdbc.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Management, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Media, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Misc, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Misc.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Naming, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Naming.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Remoting, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Security, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.SwingAWT, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.SwingAWT.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Text, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Tools, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Util, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.API, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.XML.API.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Bind, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.XML.Bind.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Crypto, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.XML.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Parse, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.XML.Parse.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Transform, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.XML.Transform.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.WebServices, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.XML.WebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.XPath, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.OpenJDK.XML.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime.JNI, Version=7.3.4830.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.7.3.4830.0\lib\IKVM.Runtime.JNI.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.pdfa.5.5.13.2\lib\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13.2\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xtra.5.5.13.2\lib\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Analyzers, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Analyzers.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Core, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.FastVectorHighlighter, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.FastVectorHighlighter.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Highlighter, Version=2.3.2.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Highlighter.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Memory, Version=1.0.0.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Queries, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Queries.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Regex, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Regex.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SimpleFacetedSearch, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.SimpleFacetedSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Snowball, Version=2.0.0.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Snowball.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SpellChecker, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Linq, Version=3.6.0.125, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.Linq.3.6.0\lib\net40\Lucene.Net.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SessionState.SessionStateModule, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SessionState.SessionStateModule.1.1.0\lib\Net462\Microsoft.AspNet.SessionState.SessionStateModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.StackExchangeRedis, Version=2.4.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.StackExchangeRedis.2.4.2\lib\net461\Microsoft.AspNet.SignalR.StackExchangeRedis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.FileSystems, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.FileSystems.4.2.0\lib\net45\Microsoft.Owin.FileSystems.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.2.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.StaticFiles, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.StaticFiles.4.2.0\lib\net45\Microsoft.Owin.StaticFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.RedisSessionStateProvider, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.RedisSessionStateProvider.4.0.1\lib\net462\Microsoft.Web.RedisSessionStateProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Pipelines.Sockets.Unofficial, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42ea0a778e13fbe2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pipelines.Sockets.Unofficial.2.2.0\lib\net472\Pipelines.Sockets.Unofficial.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.4.1\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=1.15.9.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.1.15.9.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.2.2.50\lib\net472\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.5.0.0\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.EventLog, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.EventLog.5.0.1\lib\net461\System.Diagnostics.EventLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.PerformanceCounter, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.PerformanceCounter.5.0.1\lib\net461\System.Diagnostics.PerformanceCounter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.5.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.1\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.5.0.0\lib\net461\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.5.0.0\lib\net461\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Audio\notify.mp3" />
+    <Content Include="Audio\notify.ogg" />
+    <Content Include="Audio\notify.wav" />
+    <Content Include="bin\Hid_Dll.dll" />
+    <Content Include="bin\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="CSS\font-face\iran-sans.css" />
+    <Content Include="CSS\font-face\roboto.css" />
+    <Content Include="CSS\foundation-fix.css" />
+    <Content Include="CSS\global.css" />
+    <Content Include="CSS\input-anim-label.css" />
+    <Content Include="CSS\kendo.rtl.css" />
+    <Content Include="CSS\KendoRTLRepair.css" />
+    <Content Include="CSS\LTR.css" />
+    <Content Include="CSS\pdf.css" />
+    <Content Include="CSS\RTL.css" />
+    <Content Include="CSS\theme-template.css" />
+    <Content Include="CSS\theme.css" />
+    <Content Include="CSS\Themes\Blue_0072ae.css" />
+    <Content Include="CSS\Themes\Blue_1cbbb4.css" />
+    <Content Include="CSS\Themes\Blue_2160d3.css" />
+    <Content Include="CSS\Themes\Blue_2b7be4.css" />
+    <Content Include="CSS\Themes\Blue_399194.css" />
+    <Content Include="CSS\Themes\Brown_bb7711.css" />
+    <Content Include="CSS\Themes\Default.css" />
+    <Content Include="CSS\Themes\Gray_657687.css" />
+    <Content Include="CSS\Themes\Gray_aaaaaa.css" />
+    <Content Include="CSS\Themes\Green_00a651.css" />
+    <Content Include="CSS\Themes\Green_15c394.css" />
+    <Content Include="CSS\Themes\Green_3b7a4e.css" />
+    <Content Include="CSS\Themes\Green_419e35.css" />
+    <Content Include="CSS\Themes\Green_5f7b36.css" />
+    <Content Include="CSS\Themes\Green_b6dd0c.css" />
+    <Content Include="CSS\Themes\Orange_ff8a00.css" />
+    <Content Include="CSS\Themes\Pink_fb9bd9.css" />
+    <Content Include="CSS\Themes\Red_a85951.css" />
+    <Content Include="CSS\Themes\Red_d9534d.css" />
+    <Content Include="CSS\Themes\Red_f50101.css" />
+    <Content Include="CSS\Themes\Red_ff0000.css" />
+    <Content Include="CSS\Themes\Red_ff6633.css" />
+    <Content Include="CSS\Themes\Violet_8621d4.css" />
+    <Content Include="CSS\Themes\Yellow_ffe035.css" />
+    <Content Include="Data_Import_Templates\authors.xml" />
+    <Content Include="Data_Import_Templates\experts.xml" />
+    <Content Include="Data_Import_Templates\members.xml" />
+    <Content Include="Data_Import_Templates\remove_nodes.xml" />
+    <Content Include="Data_Import_Templates\node_ids.xml" />
+    <Content Include="Data_Import_Templates\nodes.xml" />
+    <Content Include="Data_Import_Templates\relations.xml" />
+    <Content Include="Data_Import_Templates\permissions.xml" />
+    <Content Include="Data_Import_Templates\users.xml" />
+    <Content Include="Data_Import_Templates\user_confidentialities.xml" />
+    <Content Include="Default.aspx" />
+    <Content Include="Fonts\font-awesome.css" />
+    <Content Include="Fonts\fontawesome-webfont.eot" />
+    <Content Include="Fonts\fontawesome-webfont.svg" />
+    <Content Include="Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Fonts\fontawesome-webfont.woff" />
+    <Content Include="Fonts\fontawesome-webfont.woff2" />
+    <Content Include="Fonts\FontAwesome.otf" />
+    <Content Include="Fonts\IRANSans\eot\IRANSansWeb.eot" />
+    <Content Include="Fonts\IRANSans\eot\IRANSansWeb_Bold.eot" />
+    <Content Include="Fonts\IRANSans\eot\IRANSansWeb_Light.eot" />
+    <Content Include="Fonts\IRANSans\eot\IRANSansWeb_Medium.eot" />
+    <Content Include="Fonts\IRANSans\eot\IRANSansWeb_UltraLight.eot" />
+    <Content Include="Fonts\IRANSans\ttf\IRANSansWeb.ttf" />
+    <Content Include="Fonts\IRANSans\ttf\IRANSansWeb_Bold.ttf" />
+    <Content Include="Fonts\IRANSans\ttf\IRANSansWeb_Light.ttf" />
+    <Content Include="Fonts\IRANSans\ttf\IRANSansWeb_Medium.ttf" />
+    <Content Include="Fonts\IRANSans\ttf\IRANSansWeb_UltraLight.ttf" />
+    <Content Include="Fonts\IRANSans\windows\IRANSans.ttf" />
+    <Content Include="Fonts\IRANSans\woff2\IRANSansWeb.woff2" />
+    <Content Include="Fonts\IRANSans\woff2\IRANSansWeb_Bold.woff2" />
+    <Content Include="Fonts\IRANSans\woff2\IRANSansWeb_Light.woff2" />
+    <Content Include="Fonts\IRANSans\woff2\IRANSansWeb_Medium.woff2" />
+    <Content Include="Fonts\IRANSans\woff2\IRANSansWeb_UltraLight.woff2" />
+    <Content Include="Fonts\IRANSans\woff\IRANSansWeb.woff" />
+    <Content Include="Fonts\IRANSans\woff\IRANSansWeb_Bold.woff" />
+    <Content Include="Fonts\IRANSans\woff\IRANSansWeb_Light.woff" />
+    <Content Include="Fonts\IRANSans\woff\IRANSansWeb_Medium.woff" />
+    <Content Include="Fonts\IRANSans\woff\IRANSansWeb_UltraLight.woff" />
+    <Content Include="Fonts\Roboto\LICENSE.txt" />
+    <Content Include="Fonts\Roboto\Roboto-Black.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-BlackItalic.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Bold.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-BoldItalic.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Italic.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Light.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-LightItalic.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Medium.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-MediumItalic.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Regular.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Thin.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-ThinItalic.ttf" />
+    <Content Include="Help\fa\advancededitor\advancededitor.rvhlp" />
+    <Content Include="Help\fa\chat - chat\chat.rvhlp" />
+    <Content Include="Help\fa\classes\classes.rvhlp" />
+    <Content Include="Help\fa\dashboard\dashboard.rvhlp" />
+    <Content Include="Help\fa\expertisedomains\expertisedomains.rvhlp" />
+    <Content Include="Help\fa\explorer - explorer\explorer.rvhlp" />
+    <Content Include="Help\fa\favorites\favorites.rvhlp" />
+    <Content Include="Help\fa\fileupload\fileupload.rvhlp" />
+    <Content Include="Help\fa\forms - fg\forms.rvhlp" />
+    <Content Include="Help\fa\groups\groups.rvhlp" />
+    <Content Include="Help\fa\homepage\homepage.rvhlp" />
+    <Content Include="Help\fa\intellectualproperties\intellectualproperties.rvhlp" />
+    <Content Include="Help\fa\intellectualproperties\sub\nodepage\nodepage.rvhlp" />
+    <Content Include="Help\fa\intellectualproperties\sub\register\register.rvhlp" />
+    <Content Include="Help\fa\listview\listview.rvhlp" />
+    <Content Include="Help\fa\media\admin_confidentiality_levels.png" />
+    <Content Include="Help\fa\media\admin_document_trees.png" />
+    <Content Include="Help\fa\media\admin_document_trees_removed.png" />
+    <Content Include="Help\fa\media\admin_forms.png" />
+    <Content Include="Help\fa\media\admin_forms_binary.png" />
+    <Content Include="Help\fa\media\admin_forms_binary_sample.png" />
+    <Content Include="Help\fa\media\admin_forms_checkbox.png" />
+    <Content Include="Help\fa\media\admin_forms_checkbox_sample.png" />
+    <Content Include="Help\fa\media\admin_forms_date.png" />
+    <Content Include="Help\fa\media\admin_forms_edit_field.png" />
+    <Content Include="Help\fa\media\admin_forms_field_types.png" />
+    <Content Include="Help\fa\media\admin_forms_file.png" />
+    <Content Include="Help\fa\media\admin_forms_form.png" />
+    <Content Include="Help\fa\media\admin_forms_form_autosuggest.png" />
+    <Content Include="Help\fa\media\admin_forms_form_sample.png" />
+    <Content Include="Help\fa\media\admin_forms_integration_excel.png" />
+    <Content Include="Help\fa\media\admin_forms_integration_sample.png" />
+    <Content Include="Help\fa\media\admin_forms_multilevel.png" />
+    <Content Include="Help\fa\media\admin_forms_multilevel_class_sample.png" />
+    <Content Include="Help\fa\media\admin_forms_multilevel_levels.png" />
+    <Content Include="Help\fa\media\admin_forms_multilevel_sample.png" />
+    <Content Include="Help\fa\media\admin_forms_multilevel_sample_2.png" />
+    <Content Include="Help\fa\media\admin_forms_multilevel_types.png" />
+    <Content Include="Help\fa\media\admin_forms_new_field.png" />
+    <Content Include="Help\fa\media\admin_forms_node.png" />
+    <Content Include="Help\fa\media\admin_forms_number.png" />
+    <Content Include="Help\fa\media\admin_forms_select.png" />
+    <Content Include="Help\fa\media\admin_forms_select_autosuggest.png" />
+    <Content Include="Help\fa\media\admin_forms_select_autosuggest_sample.png" />
+    <Content Include="Help\fa\media\admin_forms_select_normal.png" />
+    <Content Include="Help\fa\media\admin_forms_separator_sample.png" />
+    <Content Include="Help\fa\media\admin_forms_text.png" />
+    <Content Include="Help\fa\media\admin_forms_text_validator.png" />
+    <Content Include="Help\fa\media\admin_forms_text_validator_sample.png" />
+    <Content Include="Help\fa\media\admin_forms_user.png" />
+    <Content Include="Help\fa\media\admin_knowledge.png" />
+    <Content Include="Help\fa\media\admin_knowledge_questions.png" />
+    <Content Include="Help\fa\media\admin_knowledge_questions_options.png" />
+    <Content Include="Help\fa\media\admin_map_bulknodeadd.png" />
+    <Content Include="Help\fa\media\admin_map_classes.png" />
+    <Content Include="Help\fa\media\admin_map_classes_recycle.png" />
+    <Content Include="Help\fa\media\admin_map_code_pattern.png" />
+    <Content Include="Help\fa\media\admin_map_excelsample.png" />
+    <Content Include="Help\fa\media\admin_map_extensions.png" />
+    <Content Include="Help\fa\media\admin_map_extensions_alias.png" />
+    <Content Include="Help\fa\media\admin_map_extensions_order.png" />
+    <Content Include="Help\fa\media\admin_map_logo.png" />
+    <Content Include="Help\fa\media\admin_map_members.png" />
+    <Content Include="Help\fa\media\admin_map_nodeoptions.png" />
+    <Content Include="Help\fa\media\admin_map_nodeoptions_dialog.png" />
+    <Content Include="Help\fa\media\admin_map_nodes.png" />
+    <Content Include="Help\fa\media\admin_map_recyclenode.png" />
+    <Content Include="Help\fa\media\admin_map_serviceadmins.png" />
+    <Content Include="Help\fa\media\admin_map_servicebuttons.png" />
+    <Content Include="Help\fa\media\admin_map_service_description.png" />
+    <Content Include="Help\fa\media\admin_map_service_newnode.png" />
+    <Content Include="Help\fa\media\admin_map_service_nodeadmin.png" />
+    <Content Include="Help\fa\media\admin_map_service_privacy.png" />
+    <Content Include="Help\fa\media\admin_map_sets.png" />
+    <Content Include="Help\fa\media\admin_map_sets_new.png" />
+    <Content Include="Help\fa\media\admin_map_treenodeedit.png" />
+    <Content Include="Help\fa\media\admin_open_document.png" />
+    <Content Include="Help\fa\media\admin_open_document_download.png" />
+    <Content Include="Help\fa\media\admin_open_document_label.png" />
+    <Content Include="Help\fa\media\admin_open_document_textbox.png" />
+    <Content Include="Help\fa\media\admin_open_document_textbox_control.png" />
+    <Content Include="Help\fa\media\admin_open_document_textbox_name.png" />
+    <Content Include="Help\fa\media\admin_open_document_toolbox.png" />
+    <Content Include="Help\fa\media\admin_open_office_export.png" />
+    <Content Include="Help\fa\media\admin_open_office_files.png" />
+    <Content Include="Help\fa\media\admin_users.png" />
+    <Content Include="Help\fa\media\admin_users_active_status.png" />
+    <Content Include="Help\fa\media\admin_users_newuser_dialog.png" />
+    <Content Include="Help\fa\media\admin_users_newuser_dialog_invalid.png" />
+    <Content Include="Help\fa\media\admin_users_newuser_dialog_valid.png" />
+    <Content Include="Help\fa\media\admin_users_newuser_resetpassword_done.png" />
+    <Content Include="Help\fa\media\admin_users_resetpassword.png" />
+    <Content Include="Help\fa\media\admin_user_groups.png" />
+    <Content Include="Help\fa\media\advanced_editor_file_tag.png" />
+    <Content Include="Help\fa\media\advanced_editor_file_upload.png" />
+    <Content Include="Help\fa\media\advanced_editor_tag_user.png" />
+    <Content Include="Help\fa\media\contents_from_my_network.png" />
+    <Content Include="Help\fa\media\cover_photo.png" />
+    <Content Include="Help\fa\media\dashboard.png" />
+    <Content Include="Help\fa\media\dashboard_button.png" />
+    <Content Include="Help\fa\media\dashboard_list.png" />
+    <Content Include="Help\fa\media\dashboard_list_inworkflowstate.png" />
+    <Content Include="Help\fa\media\dashboard_selected_user.png" />
+    <Content Include="Help\fa\media\dashboard_supervision.png" />
+    <Content Include="Help\fa\media\dashboard_supervision_current.png" />
+    <Content Include="Help\fa\media\dataimport_excel_add_source.png" />
+    <Content Include="Help\fa\media\dataimport_excel_developer.png" />
+    <Content Include="Help\fa\media\dataimport_excel_example.png" />
+    <Content Include="Help\fa\media\dataimport_excel_export.png" />
+    <Content Include="Help\fa\media\dataimport_excel_map.png" />
+    <Content Include="Help\fa\media\dataimport_nodeadditionalid.png" />
+    <Content Include="Help\fa\media\dataimport_templates.png" />
+    <Content Include="Help\fa\media\expertise_domains.png" />
+    <Content Include="Help\fa\media\explorer.png" />
+    <Content Include="Help\fa\media\explorer_actions.png" />
+    <Content Include="Help\fa\media\explorer_button.png" />
+    <Content Include="Help\fa\media\explorer_foldersnfiles.png" />
+    <Content Include="Help\fa\media\favorites.png" />
+    <Content Include="Help\fa\media\file_upload_dialog.png" />
+    <Content Include="Help\fa\media\file_upload_dialog_auto_save.png" />
+    <Content Include="Help\fa\media\file_upload_dialog_drag.png" />
+    <Content Include="Help\fa\media\file_upload_dialog_manual_save.png" />
+    <Content Include="Help\fa\media\file_upload_dialog_restrictions.png" />
+    <Content Include="Help\fa\media\groups.png" />
+    <Content Include="Help\fa\media\home.png" />
+    <Content Include="Help\fa\media\home_button.png" />
+    <Content Include="Help\fa\media\intellectual_properties.png" />
+    <Content Include="Help\fa\media\join_group.png" />
+    <Content Include="Help\fa\media\like_node_button.png" />
+    <Content Include="Help\fa\media\listview.png" />
+    <Content Include="Help\fa\media\listview_button.png" />
+    <Content Include="Help\fa\media\listview_filters.png" />
+    <Content Include="Help\fa\media\messages.png" />
+    <Content Include="Help\fa\media\messages_button.png" />
+    <Content Include="Help\fa\media\messages_forwards_list.png" />
+    <Content Include="Help\fa\media\messages_forwards_list_button.png" />
+    <Content Include="Help\fa\media\messages_forward_button.png" />
+    <Content Include="Help\fa\media\messages_new_message_dialog.png" />
+    <Content Include="Help\fa\media\messages_new_thread_button.png" />
+    <Content Include="Help\fa\media\messages_remove.png" />
+    <Content Include="Help\fa\media\messages_threads.png" />
+    <Content Include="Help\fa\media\ndoe_page.png" />
+    <Content Include="Help\fa\media\new_profile_pic_button.png" />
+    <Content Include="Help\fa\media\node_select_dialog.png" />
+    <Content Include="Help\fa\media\notification_center.png" />
+    <Content Include="Help\fa\media\notification_center_button.png" />
+    <Content Include="Help\fa\media\notification_center_new_notification.png" />
+    <Content Include="Help\fa\media\online_users.png" />
+    <Content Include="Help\fa\media\password_change_dialog.png" />
+    <Content Include="Help\fa\media\password_change_dialog_valid.png" />
+    <Content Include="Help\fa\media\personal_settings_button.png" />
+    <Content Include="Help\fa\media\personal_settings_dialog.png" />
+    <Content Include="Help\fa\media\pic_link_to_profile.png" />
+    <Content Include="Help\fa\media\privacy_dialog.png" />
+    <Content Include="Help\fa\media\privacy_dialog_permissions.png" />
+    <Content Include="Help\fa\media\privacy_dialog_permissions_detail.png" />
+    <Content Include="Help\fa\media\profile_button.png" />
+    <Content Include="Help\fa\media\profile_cover_photo_button.png" />
+    <Content Include="Help\fa\media\profile_page.png" />
+    <Content Include="Help\fa\media\profile_pic_crop_button.png" />
+    <Content Include="Help\fa\media\profile_pic_crop_dialog.png" />
+    <Content Include="Help\fa\media\search.png" />
+    <Content Include="Help\fa\media\search_filters.png" />
+    <Content Include="Help\fa\media\search_users.png" />
+    <Content Include="Help\fa\media\search_users_button.png" />
+    <Content Include="Help\fa\media\search_users_details.png" />
+    <Content Include="Help\fa\media\service_new_dialog.png" />
+    <Content Include="Help\fa\media\service_new_dialog_bottom.png" />
+    <Content Include="Help\fa\media\service_new_group_dialog.png" />
+    <Content Include="Help\fa\media\service_new_with_form.png" />
+    <Content Include="Help\fa\media\simple_editor.png" />
+    <Content Include="Help\fa\media\simple_editor_tag.png" />
+    <Content Include="Help\fa\media\socialnetwork_friend_requests_alert.png" />
+    <Content Include="Help\fa\media\social_network.png" />
+    <Content Include="Help\fa\media\social_network_new_post.png" />
+    <Content Include="Help\fa\media\social_network_send_comment.png" />
+    <Content Include="Help\fa\media\system_settings_button.png" />
+    <Content Include="Help\fa\media\system_settings_page.png" />
+    <Content Include="Help\fa\media\tag_independent.png" />
+    <Content Include="Help\fa\media\tag_inline.png" />
+    <Content Include="Help\fa\media\themes_dialog.png" />
+    <Content Include="Help\fa\media\user_select_dialog.png" />
+    <Content Include="Help\fa\media\wiki.png" />
+    <Content Include="Help\fa\media\wiki_edit_suggestion.png" />
+    <Content Include="Help\fa\media\wiki_edit_suggestion_buttons.png" />
+    <Content Include="Help\fa\media\wiki_export_as_pdf.png" />
+    <Content Include="Help\fa\media\wiki_index.png" />
+    <Content Include="Help\fa\media\wiki_index_autonew.png" />
+    <Content Include="Help\fa\media\wiki_index_editremove.png" />
+    <Content Include="Help\fa\media\wiki_index_empty.png" />
+    <Content Include="Help\fa\media\wiki_index_empty_new.png" />
+    <Content Include="Help\fa\media\wiki_index_new.png" />
+    <Content Include="Help\fa\media\wiki_index_restore.png" />
+    <Content Include="Help\fa\media\wiki_index_restore_button.png" />
+    <Content Include="Help\fa\media\wiki_index_sort.png" />
+    <Content Include="Help\fa\media\wiki_index_sort_dialog.png" />
+    <Content Include="Help\fa\media\wiki_paragraphs.png" />
+    <Content Include="Help\fa\media\wiki_paragraphs_sort.png" />
+    <Content Include="Help\fa\media\wiki_paragraphs_sort_dialog.png" />
+    <Content Include="Help\fa\media\wiki_paragraph_authors.png" />
+    <Content Include="Help\fa\media\wiki_paragraph_edit.png" />
+    <Content Include="Help\fa\media\wiki_paragraph_edit_button.png" />
+    <Content Include="Help\fa\media\wiki_paragraph_history.png" />
+    <Content Include="Help\fa\media\wiki_paragraph_history_button.png" />
+    <Content Include="Help\fa\media\wiki_paragraph_menu.png" />
+    <Content Include="Help\fa\media\wiki_paragraph_new.png" />
+    <Content Include="Help\fa\media\wiki_paragraph_new_button.png" />
+    <Content Include="Help\fa\media\wiki_paragraph_remove.png" />
+    <Content Include="Help\fa\media\wiki_paragraph_restore.png" />
+    <Content Include="Help\fa\media\wiki_paragraph_restore_button.png" />
+    <Content Include="Help\fa\media\wiki_title_empty.png" />
+    <Content Include="Help\fa\messaging - msg\messaging.rvhlp" />
+    <Content Include="Help\fa\messaging - msg\sub\forward\forward.rvhlp" />
+    <Content Include="Help\fa\messaging - msg\sub\newmessage\newmessage.rvhlp" />
+    <Content Include="Help\fa\messaging - msg\sub\remove\remove.rvhlp" />
+    <Content Include="Help\fa\newcontentsfrommynetwork - sh\newcontentsfrommynetwork.rvhlp" />
+    <Content Include="Help\fa\newcontentsfrommynetwork\newcontentsfrommynetwork.rvhlp" />
+    <Content Include="Help\fa\nodeselectdialog\nodeselectdialog.rvhlp" />
+    <Content Include="Help\fa\nodes\nodes.rvhlp" />
+    <Content Include="Help\fa\notificationcenter - ntfn\notificationcenter.rvhlp" />
+    <Content Include="Help\fa\permissionsdialog\permissionsdialog.rvhlp" />
+    <Content Include="Help\fa\personalsettings\personalsettings.rvhlp" />
+    <Content Include="Help\fa\personalsettings\sub\changepassword\changepassword.rvhlp" />
+    <Content Include="Help\fa\personalsettings\sub\theme\theme.rvhlp" />
+    <Content Include="Help\fa\poll - fg\poll.rvhlp" />
+    <Content Include="Help\fa\profile\profile.rvhlp" />
+    <Content Include="Help\fa\profile\sub\aboutme\aboutme.rvhlp" />
+    <Content Include="Help\fa\profile\sub\coverphoto - sh\coverphoto.rvhlp" />
+    <Content Include="Help\fa\profile\sub\picture\picture.rvhlp" />
+    <Content Include="Help\fa\profile\sub\resume - resume\resume.rvhlp" />
+    <Content Include="Help\fa\profile\sub\resume - resume\sub\courses\courses.rvhlp" />
+    <Content Include="Help\fa\profile\sub\resume - resume\sub\education\education.rvhlp" />
+    <Content Include="Help\fa\profile\sub\resume - resume\sub\honors\honors.rvhlp" />
+    <Content Include="Help\fa\profile\sub\resume - resume\sub\identity\identity.rvhlp" />
+    <Content Include="Help\fa\profile\sub\resume - resume\sub\jobs\jobs.rvhlp" />
+    <Content Include="Help\fa\profile\sub\social - sh\social.rvhlp" />
+    <Content Include="Help\fa\qa - qa\qa.rvhlp" />
+    <Content Include="Help\fa\searchusers\searchusers.rvhlp" />
+    <Content Include="Help\fa\search\search.rvhlp" />
+    <Content Include="Help\fa\simpleeditor\simpleeditor.rvhlp" />
+    <Content Include="Help\fa\socialnetwork - sh\socialnetwork.rvhlp" />
+    <Content Include="Help\fa\socialnetwork - sh\sub\network\network.rvhlp" />
+    <Content Include="Help\fa\socialnetwork - sh\sub\network\sub\friendshiprequest\friendshiprequest.rvhlp" />
+    <Content Include="Help\fa\socialnetwork - sh\sub\newcomment\newcomment.rvhlp" />
+    <Content Include="Help\fa\socialnetwork - sh\sub\newpost\newpost.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\confidentialitylevels\confidentialitylevels.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\dataimport\dataimport.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\documenttrees - dct\documenttrees.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\edittree\edittree.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\evaluationprocesses - kw\evaluationprocesses.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\evaluationprocesses - kw\sub\questions\questions.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\forms.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\binaryfield\binaryfield.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\checkboxfield\checkboxfield.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\datefield\datefield.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\filefield\filefield.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\formfield\formfield.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\integration\integration.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\multilevelfield\multilevelfield.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\nodefield\nodefield.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\numericfield\numericfield.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\selectfield\selectfield.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\separatorfield\separatorfield.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\textfield\textfield.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\forms - fg\sub\userfield\userfield.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\map.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\editclasses\editclasses.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\extensions\extensions.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\general\general.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\nodes\nodes.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\nodes\sub\edittree\edittree.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\nodes\sub\manynodesviaexcel\manynodesviaexcel.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\nodes\sub\membersandexperts\membersandexperts.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\nodes\sub\newnode\newnode.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\nodes\sub\removednodes\removednodes.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\pdftemplates\pdftemplates.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\serviceadmins\serviceadmins.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\servicesettings\servicesettings.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\map\sub\sets\sets.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\settings\settings.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\usergroups\usergroups.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\users\sub\activateusers\activateusers.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\users\sub\newuser\newuser.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\users\sub\resetpassword\resetpassword.rvhlp" />
+    <Content Include="Help\fa\systemsettings\sub\users\users.rvhlp" />
+    <Content Include="Help\fa\systemsettings\systemsettings.rvhlp" />
+    <Content Include="Help\fa\tags\tags.rvhlp" />
+    <Content Include="Help\fa\userselectdialog\userselectdialog.rvhlp" />
+    <Content Include="Help\fa\visualmap - visualmap\visualmap.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\authorizedauthors\authorizedauthors.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\editsuggestions\editsuggestions.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\export2pdf\export2pdf.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\paragraphs\paragraphs.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\paragraphs\sub\authors\authors.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\paragraphs\sub\edit\edit.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\paragraphs\sub\history\history.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\paragraphs\sub\newparagraph\newparagraph.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\paragraphs\sub\recover\recover.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\paragraphs\sub\remove\remove.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\paragraphs\sub\sort\sort.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\titles\sub\editremove\editremove.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\titles\sub\newtitle\newtitle.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\titles\sub\recover\recover.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\titles\sub\sort\sort.rvhlp" />
+    <Content Include="Help\fa\wiki\sub\titles\titles.rvhlp" />
+    <Content Include="Help\fa\wiki\wiki.rvhlp" />
+    <Content Include="Images\Academy30.png" />
+    <Content Include="Images\Accept-Over.png" />
+    <Content Include="Images\Accept.png" />
+    <Content Include="Images\Accept12.png" />
+    <Content Include="Images\Accept32-Over.png" />
+    <Content Include="Images\Accept32.png" />
+    <Content Include="Images\Add-Over.png" />
+    <Content Include="Images\Add.png" />
+    <Content Include="Images\Add12.png" />
+    <Content Include="Images\AddCalendar.gif" />
+    <Content Include="Images\AddEconomyValue.png" />
+    <Content Include="Images\AddToFav.png" />
+    <Content Include="Images\Add_256.png" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\archive.png" />
+    <Content Include="Images\archive_disabled.png" />
+    <Content Include="Images\ArrowDown.png" />
+    <Content Include="Images\ArrowDown12.png" />
+    <Content Include="Images\ArrowLeft-Mini.png" />
+    <Content Include="Images\ArrowLeft.png" />
+    <Content Include="Images\ArrowLR.png" />
+    <Content Include="Images\ArrowRight.png" />
+    <Content Include="Images\ArrowUp.png" />
+    <Content Include="Images\ArrowUp12.png" />
+    <Content Include="Images\AtSign.png" />
+    <Content Include="Images\AtSign16.png" />
+    <Content Include="Images\Attach.png" />
+    <Content Include="Images\Audit200.png" />
+    <Content Include="Images\background\RV-BG-01.jpg" />
+    <Content Include="Images\background\RV-BG-02.jpg" />
+    <Content Include="Images\background\RV-BG-03.jpg" />
+    <Content Include="Images\background\RV-BG-04.jpg" />
+    <Content Include="Images\background\RV-BG-05.jpg" />
+    <Content Include="Images\background\RV-BG-06.jpg" />
+    <Content Include="Images\background\RV-BG-07.jpg" />
+    <Content Include="Images\background\RV-BG-08.jpg" />
+    <Content Include="Images\background\RV-BG-09.jpg" />
+    <Content Include="Images\background\RV-BG-10.jpg" />
+    <Content Include="Images\background\RV-BG-11.jpg" />
+    <Content Include="Images\background\RV-BG-12.jpg" />
+    <Content Include="Images\background\RV-BG-13.jpg" />
+    <Content Include="Images\background\RV-BG-14.jpg" />
+    <Content Include="Images\background\RV-BG-15.jpg" />
+    <Content Include="Images\background\RV-BG-16.jpg" />
+    <Content Include="Images\background\RV-BG-17.jpg" />
+    <Content Include="Images\background\RV-BG-18.jpg" />
+    <Content Include="Images\background\RV-BG-19.jpg" />
+    <Content Include="Images\background\RV-BG-20.jpg" />
+    <Content Include="Images\background\RV-BG-21.jpg" />
+    <Content Include="Images\background\RV-BG-22.jpg" />
+    <Content Include="Images\background\RV-BG-23.jpg" />
+    <Content Include="Images\background\RV-BG-24.jpg" />
+    <Content Include="Images\background\RV-BG-25.jpg" />
+    <Content Include="Images\background\RV-BG-26.jpg" />
+    <Content Include="Images\background\RV-BG-27.jpg" />
+    <Content Include="Images\background\RV-BG-28.jpg" />
+    <Content Include="Images\bell32.png" />
+    <Content Include="Images\Book.png" />
+    <Content Include="Images\CAdd32-Over.png" />
+    <Content Include="Images\CAdd32.png" />
+    <Content Include="Images\calendar.gif" />
+    <Content Include="Images\Calendar.png" />
+    <Content Include="Images\calendar2.png" />
+    <Content Include="Images\CalendarHeader.png" />
+    <Content Include="Images\Cancel-Over.png" />
+    <Content Include="Images\Cancel.png" />
+    <Content Include="Images\Cancel12.png" />
+    <Content Include="Images\Cancel20.png" />
+    <Content Include="Images\Cancel32-Over.png" />
+    <Content Include="Images\Cancel32.png" />
+    <Content Include="Images\Chat-Over.png" />
+    <Content Include="Images\Chat.png" />
+    <Content Include="Images\Checkbox-Checked.png" />
+    <Content Include="Images\Checkbox-False.png" />
+    <Content Include="Images\Checkbox-Unchecked.png" />
+    <Content Include="Images\Checked.png" />
+    <Content Include="Images\Clean.png" />
+    <Content Include="Images\CliqMind-Mini.png" />
+    <Content Include="Images\cliqmind.ico" />
+    <Content Include="Images\CliqMindLogo.png" />
+    <Content Include="Images\ColCount.png" />
+    <Content Include="Images\Content.png" />
+    <Content Include="Images\Cover-Front-Simple.png" />
+    <Content Include="Images\Cover-Front.png" />
+    <Content Include="Images\CoverFront.png" />
+    <Content Include="Images\Cut.png" />
+    <Content Include="Images\Cut_disabled.png" />
+    <Content Include="Images\Dashboard.png" />
+    <Content Include="Images\DataImport128.png" />
+    <Content Include="Images\dblArrow.png" />
+    <Content Include="Images\dblArrowBW.png" />
+    <Content Include="Images\DefaultCoverPhoto.jpg" />
+    <Content Include="Images\Delete-Bin.png" />
+    <Content Include="Images\Delete-over.png" />
+    <Content Include="Images\Delete.png" />
+    <Content Include="Images\Delete12-over.png" />
+    <Content Include="Images\Delete12.png" />
+    <Content Include="Images\Download-Black.png" />
+    <Content Include="Images\Download-White.png" />
+    <Content Include="Images\DragDrop.png" />
+    <Content Include="Images\Editl-over.png" />
+    <Content Include="Images\Editl.png" />
+    <Content Include="Images\Emoticons\%24.png" />
+    <Content Include="Images\Emoticons\airplane.png" />
+    <Content Include="Images\Emoticons\angel.png" />
+    <Content Include="Images\Emoticons\angry.png" />
+    <Content Include="Images\Emoticons\baseball.png" />
+    <Content Include="Images\Emoticons\basketball.png" />
+    <Content Include="Images\Emoticons\bicycle.png" />
+    <Content Include="Images\Emoticons\bobi.png" />
+    <Content Include="Images\Emoticons\burger.png" />
+    <Content Include="Images\Emoticons\car.png" />
+    <Content Include="Images\Emoticons\cat.png" />
+    <Content Include="Images\Emoticons\chick.png" />
+    <Content Include="Images\Emoticons\cigarette.png" />
+    <Content Include="Images\Emoticons\clap.png" />
+    <Content Include="Images\Emoticons\cloud.png" />
+    <Content Include="Images\Emoticons\coffee.png" />
+    <Content Include="Images\Emoticons\confused.png" />
+    <Content Include="Images\Emoticons\console.png" />
+    <Content Include="Images\Emoticons\cool.png" />
+    <Content Include="Images\Emoticons\crazy.png" />
+    <Content Include="Images\Emoticons\cry.png" />
+    <Content Include="Images\Emoticons\cupcake.png" />
+    <Content Include="Images\Emoticons\depressed.png" />
+    <Content Include="Images\Emoticons\devil.png" />
+    <Content Include="Images\Emoticons\dog.png" />
+    <Content Include="Images\Emoticons\facepalm.png" />
+    <Content Include="Images\Emoticons\football.png" />
+    <Content Include="Images\Emoticons\Gesi.png" />
+    <Content Include="Images\Emoticons\happy.png" />
+    <Content Include="Images\Emoticons\heart.png" />
+    <Content Include="Images\Emoticons\heart_break.png" />
+    <Content Include="Images\Emoticons\ice_cream.png" />
+    <Content Include="Images\Emoticons\inlove.png" />
+    <Content Include="Images\Emoticons\kangaroo.png" />
+    <Content Include="Images\Emoticons\koala.png" />
+    <Content Include="Images\Emoticons\laugh.png" />
+    <Content Include="Images\Emoticons\like.png" />
+    <Content Include="Images\Emoticons\mad.png" />
+    <Content Include="Images\Emoticons\moa.png" />
+    <Content Include="Images\Emoticons\money.png" />
+    <Content Include="Images\Emoticons\monkey.png" />
+    <Content Include="Images\Emoticons\moon.png" />
+    <Content Include="Images\Emoticons\music.png" />
+    <Content Include="Images\Emoticons\nerd.png" />
+    <Content Include="Images\Emoticons\nogesi.png" />
+    <Content Include="Images\Emoticons\not_sure.png" />
+    <Content Include="Images\Emoticons\panda.png" />
+    <Content Include="Images\Emoticons\phone.png" />
+    <Content Include="Images\Emoticons\pizza.png" />
+    <Content Include="Images\Emoticons\rain.png" />
+    <Content Include="Images\Emoticons\relax.png" />
+    <Content Include="Images\Emoticons\run.png" />
+    <Content Include="Images\Emoticons\sad.png" />
+    <Content Include="Images\Emoticons\scream.png" />
+    <Content Include="Images\Emoticons\sheep.png" />
+    <Content Include="Images\Emoticons\shy.png" />
+    <Content Include="Images\Emoticons\sick.png" />
+    <Content Include="Images\Emoticons\skull.png" />
+    <Content Include="Images\Emoticons\sleeping.png" />
+    <Content Include="Images\Emoticons\smiley.png" />
+    <Content Include="Images\Emoticons\soccer.png" />
+    <Content Include="Images\Emoticons\soda.png" />
+    <Content Include="Images\Emoticons\sun.png" />
+    <Content Include="Images\Emoticons\surprised.png" />
+    <Content Include="Images\Emoticons\tape.png" />
+    <Content Include="Images\Emoticons\teeth.png" />
+    <Content Include="Images\Emoticons\time.png" />
+    <Content Include="Images\Emoticons\tongue.png" />
+    <Content Include="Images\Emoticons\tv.png" />
+    <Content Include="Images\Emoticons\unlike.png" />
+    <Content Include="Images\Emoticons\v.png" />
+    <Content Include="Images\Emoticons\wink.png" />
+    <Content Include="Images\Emoticons\yummi.png" />
+    <Content Include="Images\Emoticons\zzz.png" />
+    <Content Include="Images\EnvelopeClose.png" />
+    <Content Include="Images\EnvelopeOpen.png" />
+    <Content Include="Images\Exit12.png" />
+    <Content Include="Images\Exit16.png" />
+    <Content Include="Images\Expert-Over.png" />
+    <Content Include="Images\Expert.png" />
+    <Content Include="Images\Explorer.png" />
+    <Content Include="Images\extensions\avi.png" />
+    <Content Include="Images\extensions\bmp.png" />
+    <Content Include="Images\extensions\css.png" />
+    <Content Include="Images\extensions\default.png" />
+    <Content Include="Images\extensions\Documents.png" />
+    <Content Include="Images\extensions\docx.png" />
+    <Content Include="Images\extensions\fla.png" />
+    <Content Include="Images\extensions\gif.png" />
+    <Content Include="Images\extensions\html.png" />
+    <Content Include="Images\extensions\jpg.png" />
+    <Content Include="Images\extensions\mov.png" />
+    <Content Include="Images\extensions\mp3.png" />
+    <Content Include="Images\extensions\mpg.png" />
+    <Content Include="Images\extensions\pdf.png" />
+    <Content Include="Images\extensions\png.png" />
+    <Content Include="Images\extensions\pptx.png" />
+    <Content Include="Images\extensions\psd.png" />
+    <Content Include="Images\extensions\rar.png" />
+    <Content Include="Images\extensions\text.png" />
+    <Content Include="Images\extensions\tiff.png" />
+    <Content Include="Images\extensions\url.png" />
+    <Content Include="Images\extensions\vsd.png" />
+    <Content Include="Images\extensions\wav.png" />
+    <Content Include="Images\extensions\wma.png" />
+    <Content Include="Images\extensions\wmv.png" />
+    <Content Include="Images\extensions\xlsx.png" />
+    <Content Include="Images\extensions\zip.png" />
+    <Content Include="Images\eye_color.png" />
+    <Content Include="Images\FAQ-Over.png" />
+    <Content Include="Images\FAQ.png" />
+    <Content Include="Images\findpeople2.png" />
+    <Content Include="Images\FolderStack.png" />
+    <Content Include="Images\Forbidden.png" />
+    <Content Include="Images\Forms240.png" />
+    <Content Include="Images\Forward.png" />
+    <Content Include="Images\ForwardMessage.png" />
+    <Content Include="Images\ForwardMessage2.png" />
+    <Content Include="Images\friends.png" />
+    <Content Include="Images\GoToTop.png" />
+    <Content Include="Images\GoToTop2.png" />
+    <Content Include="Images\Graph.png" />
+    <Content Include="Images\Graph12.png" />
+    <Content Include="Images\graph2.png" />
+    <Content Include="Images\Grid.png" />
+    <Content Include="Images\Group.png" />
+    <Content Include="Images\halfstar.png" />
+    <Content Include="Images\Help.png" />
+    <Content Include="Images\HelpIcon.png" />
+    <Content Include="Images\Hierarchy.png" />
+    <Content Include="Images\home2.png" />
+    <Content Include="Images\Honor30.png" />
+    <Content Include="Images\Identity30.png" />
+    <Content Include="Images\Inbox.png" />
+    <Content Include="Images\InKnowtex.png" />
+    <Content Include="Images\IntellectualProperty.png" />
+    <Content Include="Images\InvitationReport.jpg" />
+    <Content Include="Images\Invite.gif" />
+    <Content Include="Images\Job30.png" />
+    <Content Include="Images\Key.png" />
+    <Content Include="Images\Knowledge.png" />
+    <Content Include="Images\Language30.png" />
+    <Content Include="Images\Ledgers240.png" />
+    <Content Include="Images\Loading-Circle.gif" />
+    <Content Include="Images\loading-cliqmind.gif" />
+    <Content Include="Images\loading_progress_bar.gif" />
+    <Content Include="Images\Login.png" />
+    <Content Include="Images\Logout.png" />
+    <Content Include="Images\Logout24.png" />
+    <Content Include="Images\mail.png" />
+    <Content Include="Images\Manager-Over.png" />
+    <Content Include="Images\Manager.png" />
+    <Content Include="Images\MarkupText.png" />
+    <Content Include="Images\maximize.png" />
+    <Content Include="Images\MembershipRequest16.png" />
+    <Content Include="Images\MembershipRequest36.png" />
+    <Content Include="Images\minimize.png" />
+    <Content Include="Images\Minus-Over.png" />
+    <Content Include="Images\Minus.png" />
+    <Content Include="Images\money.png" />
+    <Content Include="Images\Move20.png" />
+    <Content Include="Images\navigation2.png" />
+    <Content Include="Images\New.png" />
+    <Content Include="Images\Next-Over.png" />
+    <Content Include="Images\Next.png" />
+    <Content Include="Images\Notification128.png" />
+    <Content Include="Images\NotificationIcon.png" />
+    <Content Include="Images\no_pdf_page.png" />
+    <Content Include="Images\Outbox.png" />
+    <Content Include="Images\personal_task.gif" />
+    <Content Include="Images\Photos20.png" />
+    <Content Include="Images\Plus18.png" />
+    <Content Include="Images\Poll.png" />
+    <Content Include="Images\Poll128.png" />
+    <Content Include="Images\portraits\bob_bakman.png" />
+    <Content Include="Images\portraits\dalai_lama.png" />
+    <Content Include="Images\portraits\deiv_snoden.png" />
+    <Content Include="Images\portraits\fransis.png" />
+    <Content Include="Images\portraits\imam_ali.png" />
+    <Content Include="Images\portraits\khashayar_jahanian.png" />
+    <Content Include="Images\portraits\knofosius.png" />
+    <Content Include="Images\portraits\leo_pelet.png" />
+    <Content Include="Images\portraits\soqrat.png" />
+    <Content Include="Images\PossitiveSign.png" />
+    <Content Include="Images\PossitiveSign_disabled.png" />
+    <Content Include="Images\Preview.png" />
+    <Content Include="Images\Previous-Over.png" />
+    <Content Include="Images\Previous-Red.png" />
+    <Content Include="Images\Previous.png" />
+    <Content Include="Images\qa2.png" />
+    <Content Include="Images\Question.png" />
+    <Content Include="Images\RaaiVan-Mini.png" />
+    <Content Include="Images\RaaiVanElearn.png" />
+    <Content Include="Images\RaaiVanFav.ico" />
+    <Content Include="Images\RaaiVanFav.png" />
+    <Content Include="Images\RaaiVanHeart.jpg" />
+    <Content Include="Images\RaaiVanLogo-Fandogh.png" />
+    <Content Include="Images\RaaiVanLogo-Old.png" />
+    <Content Include="Images\RaaiVanLogo.png" />
+    <Content Include="Images\Refresh-Over.png" />
+    <Content Include="Images\Refresh.png" />
+    <Content Include="Images\remote_server.png" />
+    <Content Include="Images\reports2.png" />
+    <Content Include="Images\Resend.png" />
+    <Content Include="Images\Resume24.png" />
+    <Content Include="Images\Resume32.png" />
+    <Content Include="Images\Right-Over.png" />
+    <Content Include="Images\Right.png" />
+    <Content Include="Images\rightArrow.png" />
+    <Content Include="Images\RssOn.png" />
+    <Content Include="Images\Save-Over.png" />
+    <Content Include="Images\Save.png" />
+    <Content Include="Images\Save12.png" />
+    <Content Include="Images\Save20.png" />
+    <Content Include="Images\Search.png" />
+    <Content Include="Images\search_color.png" />
+    <Content Include="Images\Settings.png" />
+    <Content Include="Images\Settings2.png" />
+    <Content Include="Images\Settings24.png" />
+    <Content Include="Images\Settings300.png" />
+    <Content Include="Images\Star-Black.png" />
+    <Content Include="Images\Star-Full.png" />
+    <Content Include="Images\Star-Half.png" />
+    <Content Include="Images\Star-Outline.png" />
+    <Content Include="Images\Star-White.png" />
+    <Content Include="Images\star.png" />
+    <Content Include="Images\StarOff.png" />
+    <Content Include="Images\support.png" />
+    <Content Include="Images\svg\at-sign.svg" />
+    <Content Include="Images\svg\checkbox.svg" />
+    <Content Include="Images\svg\date.svg" />
+    <Content Include="Images\svg\divider.svg" />
+    <Content Include="Images\svg\file-upload.svg" />
+    <Content Include="Images\svg\form.svg" />
+    <Content Include="Images\svg\multilevel.svg" />
+    <Content Include="Images\svg\numeric.svg" />
+    <Content Include="Images\svg\radio-button.svg" />
+    <Content Include="Images\svg\table.svg" />
+    <Content Include="Images\svg\text-area.svg" />
+    <Content Include="Images\svg\textbox.svg" />
+    <Content Include="Images\svg\toggle-on-off.svg" />
+    <Content Include="Images\svg\user.svg" />
+    <Content Include="Images\Sync-Over.png" />
+    <Content Include="Images\Sync.png" />
+    <Content Include="Images\Sync12.png" />
+    <Content Include="Images\Sync20.png" />
+    <Content Include="Images\TagCloud.png" />
+    <Content Include="Images\thdown.png" />
+    <Content Include="Images\thdown_.png" />
+    <Content Include="Images\thdown_disabled.png" />
+    <Content Include="Images\thup.png" />
+    <Content Include="Images\thup_disabled.png" />
+    <Content Include="Images\thzero.png" />
+    <Content Include="Images\Training30.png" />
+    <Content Include="Images\TreeView.png" />
+    <Content Include="Images\Unknown.jpg" />
+    <Content Include="Images\Unspecified.png" />
+    <Content Include="Images\Upload20.png" />
+    <Content Include="Images\User.png" />
+    <Content Include="Images\User12.png" />
+    <Content Include="Images\User128.png" />
+    <Content Include="Images\User20.png" />
+    <Content Include="Images\UserCon.png" />
+    <Content Include="Images\UserConfidentiality240.png" />
+    <Content Include="Images\UserConStop.png" />
+    <Content Include="Images\UserConTik.png" />
+    <Content Include="Images\UserConWait.png" />
+    <Content Include="Images\userswithk.png" />
+    <Content Include="Images\user_color.png" />
+    <Content Include="Images\Visited.png" />
+    <Content Include="Images\Wall24.png" />
+    <Content Include="Images\Wall32.png" />
+    <Content Include="Images\Workflow240.png" />
+    <Content Include="Images\write_color.png" />
+    <Content Include="Images\ZoomIn20.png" />
+    <Content Include="Images\ZoomOut20.png" />
+    <Content Include="packages.config" />
+    <Content Include="Page\Setting\Classifications.aspx" />
+    <Content Include="Page\Setting\Configuration.aspx" />
+    <Content Include="Page\Setting\DataImport.aspx" />
+    <Content Include="Page\Setting\DocumentTrees.aspx" />
+    <Content Include="Page\Setting\Forms.aspx" />
+    <Content Include="Page\Setting\Help.aspx" />
+    <Content Include="Page\Setting\Knowledge.aspx" />
+    <Content Include="Page\Setting\Map.aspx" />
+    <Content Include="Page\Setting\Notifications.aspx" />
+    <Content Include="Page\Setting\Polls.aspx" />
+    <Content Include="Page\Setting\QAWorkflow.aspx" />
+    <Content Include="Page\Setting\RemoteServers.aspx" />
+    <Content Include="Page\Setting\SystemSettings.aspx" />
+    <Content Include="Page\Setting\UserGroups.aspx" />
+    <Content Include="Page\Setting\Users.aspx" />
+    <Content Include="Page\Setting\Workflows.aspx" />
+    <Content Include="Page\View\AccessDenied.aspx" />
+    <Content Include="Page\View\Applications.aspx" />
+    <Content Include="Page\View\ChangePassword.aspx" />
+    <Content Include="Page\View\Classes.aspx" />
+    <Content Include="Page\View\Dashboard.aspx" />
+    <Content Include="Page\View\Error.aspx" />
+    <Content Include="Page\View\Explorer.aspx" />
+    <Content Include="Page\View\Form.aspx" />
+    <Content Include="Page\View\Graph.aspx" />
+    <Content Include="Page\View\Help.aspx" />
+    <Content Include="Page\View\Home.aspx" />
+    <Content Include="Page\View\Login.aspx" />
+    <Content Include="Page\View\Messages.aspx" />
+    <Content Include="Page\View\Network.aspx" />
+    <Content Include="Page\View\NewNode.aspx" />
+    <Content Include="Page\View\NewQuestion.aspx" />
+    <Content Include="Page\View\Node.aspx" />
+    <Content Include="Page\View\Posts.aspx" />
+    <Content Include="Page\View\Profile.aspx" />
+    <Content Include="Page\View\QA.aspx" />
+    <Content Include="Page\View\QATag.aspx" />
+    <Content Include="Page\View\Question.aspx" />
+    <Content Include="Page\View\RemoteSearch.aspx" />
+    <Content Include="Page\View\Reports.aspx" />
+    <Content Include="Page\View\Search.aspx" />
+    <Content Include="Page\View\SearchUsers.aspx" />
+    <Content Include="Script\jQuery\jquery.signalr.js" />
+    <Content Include="Script\AdvancedListViewer-v1\NewAdvancedListViewer.js" />
+    <Content Include="Script\CN\RelatedNodesViewer.js" />
+    <Content Include="Script\FormsManager\FormsManager.js" />
+    <Content Include="Script\jQuery\jquery.dad.js" />
+    <Content Include="Script\jQuery\TextNTags\rvtextarea.js" />
+    <Content Include="Script\Lib\chart.min.js" />
+    <Content Include="Script\LoginPage\lp_modern_29_1.js" />
+    <Content Include="Script\lottie-player.js" />
+    <Content Include="Script\PrivacyManager\BatchPermissionSettings.js" />
+    <Content Include="Script\RaaiVanHelp\HelpAdmin.js" />
+    <Content Include="Script\RemoteServers\RemoteSearch.js" />
+    <Content Include="Script\Reports\ReportOptions\CN_RelatedNodesCountReport.js" />
+    <Content Include="Script\Reports\ReportOptions\CN_RelatedNodesReport.js" />
+    <Content Include="Script\Reports\ReportOptions\KW_KnowledgeAdminsDetailReport.js" />
+    <Content Include="Script\Reports\ReportOptions\KW_KnowledgeEvaluationsHistoryReport.js" />
+    <Content Include="Script\Reports\ReportOptions\KW_KnowledgeAdminsReport.js" />
+    <Content Include="Script\Reports\ReportOptions\RV_ApplicationsPerformanceReport.js" />
+    <Content Include="Script\Reports\ReportOptions\USR_ResumeEducationReport.js" />
+    <Content Include="Script\Reports\ReportOptions\USR_ResumeCoursesReport.js" />
+    <Content Include="Script\Reports\ReportOptions\USR_ResumeHonorsReport.js" />
+    <Content Include="Script\Reports\ReportOptions\USR_ResumeLanguagesReport.js" />
+    <Content Include="Script\Reports\ReportOptions\USR_ResumeReportParameters.js" />
+    <Content Include="Script\Reports\ReportOptions\USR_ResumeJobExperienceReport.js" />
+    <Content Include="Script\Reports\ReportOptions\USR_ActiveUsersReport.js" />
+    <Content Include="Script\RVAdmin\AdminPanelInitializer.js" />
+    <Content Include="Script\RVAdmin\DataImportManager.js" />
+    <Content Include="Script\RVEditor\RVEditor.js" />
+    <Content Include="Script\SharingManager\ShareDialog.js" />
+    <Content Include="Script\SharingManager\SharingManager.js" />
+    <Content Include="Script\AdvancedTextArea\AdvancedTextArea.js" />
+    <Content Include="Script\AjaxUploader\AjaxUploader.js" />
+    <Content Include="Script\API\CNAPI.js" />
+    <Content Include="Script\API\DIAPI.js" />
+    <Content Include="Script\API\DocsAPI.js" />
+    <Content Include="Script\API\EMAPI.js" />
+    <Content Include="Script\API\EventsAPI.js" />
+    <Content Include="Script\API\FGAPI.js" />
+    <Content Include="Script\API\KnowledgeAPI.js" />
+    <Content Include="Script\API\MessagingAPI.js" />
+    <Content Include="Script\API\NotificationsAPI.js" />
+    <Content Include="Script\API\PDFAPI.js" />
+    <Content Include="Script\API\PrivacyAPI.js" />
+    <Content Include="Script\API\QAAPI.js" />
+    <Content Include="Script\API\RAPI.js" />
+    <Content Include="Script\API\ReportsAPI.js" />
+    <Content Include="Script\API\RVAAPI.js" />
+    <Content Include="Script\API\RVAPI.js" />
+    <Content Include="Script\API\RVRequest.js" />
+    <Content Include="Script\API\SearchAPI.js" />
+    <Content Include="Script\API\SharingAPI.js" />
+    <Content Include="Script\API\UsersAPI.js" />
+    <Content Include="Script\API\WFAPI.js" />
+    <Content Include="Script\API\WikiAPI.js" />
+    <Content Include="Script\AutoSuggest\autosuggest.js" />
+    <Content Include="Script\CaptchaImage.js" />
+    <Content Include="Script\Cheadget\fliptext\fliptext.js" />
+    <Content Include="Script\Cheadget\gesi\gesi.js" />
+    <Content Include="Script\Cheadget\gesi\images\Gesi-Cartoon.png" />
+    <Content Include="Script\Cheadget\gesi\images\Gesi.jpg" />
+    <Content Include="Script\Cheadget\instaprofile\images\Gesi-Cartoon.png" />
+    <Content Include="Script\Cheadget\instaprofile\images\Gesi.jpg" />
+    <Content Include="Script\Cheadget\instaprofile\instaprofile.js" />
+    <Content Include="Script\Cheadget\ramin\images\ramin.JPG" />
+    <Content Include="Script\Cheadget\ramin\ramin.js" />
+    <Content Include="Script\Cheadget\sudoku\sudoku.css" />
+    <Content Include="Script\Cheadget\sudoku\sudoku.js" />
+    <Content Include="Script\Cheadget\tag\tag.js" />
+    <Content Include="Script\Cheadget\themebuilder\themebuilder.js" />
+    <Content Include="Script\Cheadget\themebuilder\tinycolor.js" />
+    <Content Include="Script\Cheadget\updatefriendsuggestions\updatefriendsuggestions.js" />
+    <Content Include="Script\CK_Editor_4.5.6\adapters\jquery.js" />
+    <Content Include="Script\CK_Editor_4.5.6\build-config.js" />
+    <Content Include="Script\CK_Editor_4.5.6\ckeditor.js" />
+    <Content Include="Script\CK_Editor_4.5.6\config.js" />
+    <Content Include="Script\CK_Editor_4.5.6\contents.css" />
+    <Content Include="Script\CK_Editor_4.5.6\lang\en.js" />
+    <Content Include="Script\CK_Editor_4.5.6\lang\fa.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\bbcode\dev\bbcode.html" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\bbcode\plugin.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\bbcode\samples\bbcode.html" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\div\dialogs\div.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\find\dialogs\find.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\flash\dialogs\flash.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\flash\images\placeholder.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\forms\dialogs\button.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\forms\dialogs\checkbox.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\forms\dialogs\form.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\forms\dialogs\hiddenfield.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\forms\dialogs\radio.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\forms\dialogs\select.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\forms\dialogs\textarea.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\forms\dialogs\textfield.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\forms\images\hiddenfield.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\icons.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\icons_hidpi.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\iframe\dialogs\iframe.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\iframe\images\placeholder.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\image\dialogs\image.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\image\images\noimage.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\link\dialogs\anchor.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\link\dialogs\link.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\link\images\anchor.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\liststyle\dialogs\liststyle.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\magicline\images\hidpi\icon-rtl.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\magicline\images\hidpi\icon.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\magicline\images\icon-rtl.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\magicline\images\icon.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\pagebreak\images\pagebreak.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\pastefromexcel\LICENSE.md" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\pastefromexcel\plugin.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\pastefromexcel\README.md" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\pastefromexcel\tests\pastefromexcel.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\pastefromword\filter\default.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\preview\preview.html" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\qrc\images\qrc.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\RVCodeHighlighter\images\codesnippet.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\RVCodeHighlighter\plugin.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\RVHelpItemSelect\images\help.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\RVHelpItemSelect\plugin.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\RVMediaSelect\images\media.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\RVMediaSelect\plugin.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\RVTag\images\tag24.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\RVTag\plugin.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\RVUploader\images\Upload20.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\RVUploader\plugin.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\dialogs\options.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\icons\hidpi\scayt.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\icons\scayt.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\af.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\ar.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\bg.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\bn.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\bs.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\ca.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\cs.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\cy.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\da.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\de.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\el.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\en-au.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\en-ca.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\en-gb.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\en.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\eo.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\es.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\et.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\eu.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\fa.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\fi.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\fo.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\fr-ca.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\fr.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\gl.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\gu.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\he.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\hi.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\hr.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\hu.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\is.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\it.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\ja.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\ka.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\km.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\ko.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\ku.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\lt.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\lv.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\mk.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\mn.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\ms.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\nb.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\nl.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\no.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\pl.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\pt-br.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\pt.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\ro.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\ru.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\sk.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\sl.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\sr-latn.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\sr.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\sv.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\th.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\tr.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\ug.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\uk.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\vi.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\zh-cn.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\lang\zh.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\LICENSE.md" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\plugin.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\scayt\README.md" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\showblocks\images\block_address.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\showblocks\images\block_blockquote.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\showblocks\images\block_div.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\showblocks\images\block_h1.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\showblocks\images\block_h2.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\showblocks\images\block_h3.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\showblocks\images\block_h4.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\showblocks\images\block_h5.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\showblocks\images\block_h6.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\showblocks\images\block_p.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\showblocks\images\block_pre.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\dialogs\smiley.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\angel_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\angel_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\angry_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\angry_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\broken_heart.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\broken_heart.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\confused_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\confused_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\cry_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\cry_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\devil_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\devil_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\embaressed_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\embarrassed_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\embarrassed_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\envelope.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\envelope.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\heart.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\heart.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\kiss.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\kiss.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\lightbulb.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\lightbulb.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\omg_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\omg_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\regular_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\regular_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\sad_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\sad_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\shades_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\shades_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\teeth_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\teeth_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\thumbs_down.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\thumbs_down.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\thumbs_up.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\thumbs_up.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\tongue_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\tongue_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\tounge_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\whatchutalkingabout_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\wink_smile.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\smiley\images\wink_smile.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\af.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\ar.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\bg.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\da.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\en-gb.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\eu.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\gl.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\hu.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\id.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\ja.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\km.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\ko.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\lt.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\pt.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\ru.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\si.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\sl.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\tt.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\uk.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\vi.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\zh.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\tableresize\dev\tableresize.html" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\tableresize\plugin.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\tableresize\samples\tableresize.html" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\table\dialogs\table.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\templates\dialogs\templates.css" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\templates\dialogs\templates.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\templates\templates\default.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\templates\templates\images\template1.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\templates\templates\images\template2.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\templates\templates\images\template3.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\dialogs\wsc_ie.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\icons\hidpi\spellchecker.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\icons\spellchecker.png" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\af.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\ar.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\bg.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\bn.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\bs.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\ca.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\cs.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\cy.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\da.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\de.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\el.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\en-au.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\en-ca.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\en-gb.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\en.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\eo.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\es.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\et.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\eu.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\fa.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\fi.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\fo.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\fr-ca.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\fr.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\gl.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\gu.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\he.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\hi.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\hr.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\hu.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\is.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\it.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\ja.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\ka.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\km.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\ko.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\ku.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\lt.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\lv.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\mk.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\mn.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\ms.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\nb.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\nl.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\no.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\pl.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\pt-br.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\pt.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\ro.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\ru.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\sk.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\sl.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\sr-latn.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\sr.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\sv.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\th.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\tr.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\ug.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\uk.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\vi.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\zh-cn.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\lang\zh.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\LICENSE.md" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\plugin.js" />
+    <Content Include="Script\CK_Editor_4.5.6\plugins\wsc\README.md" />
+    <Content Include="Script\CK_Editor_4.5.6\RaaivanPlugins\CKE_RVCodeHighlighter.js" />
+    <Content Include="Script\CK_Editor_4.5.6\RaaivanPlugins\CKE_RVHelpItemSelect.js" />
+    <Content Include="Script\CK_Editor_4.5.6\RaaivanPlugins\CKE_RVMediaSelect.js" />
+    <Content Include="Script\CK_Editor_4.5.6\RaaivanPlugins\CKE_RVTag.js" />
+    <Content Include="Script\CK_Editor_4.5.6\RaaivanPlugins\CKE_RVUploader.js" />
+    <Content Include="Script\CK_Editor_4.5.6\RaaivanPlugins\RVTag.js" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\dialog.css" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\dialog_ie.css" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\dialog_ie7.css" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\dialog_ie8.css" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\dialog_iequirks.css" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\editor.css" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\editor_gecko.css" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\editor_ie.css" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\editor_ie7.css" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\editor_ie8.css" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\editor_iequirks.css" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\icons.png" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\icons_hidpi.png" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\images\arrow.png" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\images\close.png" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\images\hidpi\close.png" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\images\hidpi\lock-open.png" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\images\hidpi\lock.png" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\images\hidpi\refresh.png" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\images\lock-open.png" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\images\lock.png" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\images\refresh.png" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\images\spinner.gif" />
+    <Content Include="Script\CK_Editor_4.5.6\skins\moono\readme.md" />
+    <Content Include="Script\CK_Editor_4.5.6\styles.js" />
+    <Content Include="Script\CN\AdminAreaSelect.js" />
+    <Content Include="Script\CN\AllNodesList.js" />
+    <Content Include="Script\CN\CNExplorer\CNExplorer.css" />
+    <Content Include="Script\CN\CNExplorer\CNExplorer.js" />
+    <Content Include="Script\CN\CNExtensions.js" />
+    <Content Include="Script\CN\CNImportFromXML.js" />
+    <Content Include="Script\CN\CNImportFromExcel.js" />
+    <Content Include="Script\CN\CNListsManager.js" />
+    <Content Include="Script\CN\ContributionEnabler.js" />
+    <Content Include="Script\CN\IDPattern.js" />
+    <Content Include="Script\CN\ListNodesManager.js" />
+    <Content Include="Script\CN\MapManager.js" />
+    <Content Include="Script\CN\NodeOwnerSelect.js" />
+    <Content Include="Script\CN\NodesListViewer.js" />
+    <Content Include="Script\CN\NodesViewer.js" />
+    <Content Include="Script\CN\NodeTypeGeneralInfoManager.js" />
+    <Content Include="Script\CN\NodeTypeService.js" />
+    <Content Include="Script\CN\NodeAccessDeniedResponse.js" />
+    <Content Include="Script\CN\NodeViewer.js" />
+    <Content Include="Script\CN\RegisterNewNode.js" />
+    <Content Include="Script\CN\ServiceAdminType.js" />
+    <Content Include="Script\CN\ServiceInitializer.js" />
+    <Content Include="Script\CN\SpecialUsers.js" />
+    <Content Include="Script\Confidentiality\ConfidentialityLevelsManager.js" />
+    <Content Include="Script\Confidentiality\ConfidentialityMembersManager.js" />
+    <Content Include="Script\DataTables\css\jquery.dataTables.css" />
+    <Content Include="Script\DataTables\images\sort_asc.png" />
+    <Content Include="Script\DataTables\images\sort_asc_disabled.png" />
+    <Content Include="Script\DataTables\images\sort_both.png" />
+    <Content Include="Script\DataTables\images\sort_desc.png" />
+    <Content Include="Script\DataTables\images\sort_desc_disabled.png" />
+    <Content Include="Script\DataTables\js\jquery.dataTables.js" />
+    <Content Include="Script\DCT\DocTreeNodeSelect.js" />
+    <Content Include="Script\DCT\DocumentTreeOwner.js" />
+    <Content Include="Script\DCT\OwnerDocs.js" />
+    <Content Include="Script\DCT\DocumentTreesManager.js" />
+    <Content Include="Script\Dropzone\css\basic.css" />
+    <Content Include="Script\Dropzone\css\dropzone.css" />
+    <Content Include="Script\Dropzone\dropzone.js" />
+    <Content Include="Script\FormsManager\FormElementsManager.js" />
+    <Content Include="Script\FormsManager\FormElementsSelect.js" />
+    <Content Include="Script\FormsManager\FormElementTypes.js" />
+    <Content Include="Script\FormsManager\FormOwner.js" />
+    <Content Include="Script\FormsManager\FormSearchFilters.js" />
+    <Content Include="Script\FormsManager\FormImport.js" />
+    <Content Include="Script\FormsManager\FormViewer.js" />
+    <Content Include="Script\Foundation\foundation.css" />
+    <Content Include="Script\Foundation\foundation.js" />
+    <Content Include="Script\Foundation\what-input.js" />
+    <Content Include="Script\GlobalUtilities.js" />
+    <Content Include="Script\GraphViewer\GraphViewer.js" />
+    <Content Include="Script\GridManager\GridManager.js" />
+    <Content Include="Script\Notifications\DashboardsCountViewer.js" />
+    <Content Include="Script\Notifications\DashboardViewer.js" />
+    <Content Include="Script\Polls\PollInitializer.js" />
+    <Content Include="Script\RaaiVanHelp\HelpUtils.js" />
+    <Content Include="Script\HighCharts\highcharts-3d.js" />
+    <Content Include="Script\HighCharts\highcharts-more.js" />
+    <Content Include="Script\HighCharts\highcharts.js" />
+    <Content Include="Script\JalaliJSCalendar-1.4\calendar-en.js" />
+    <Content Include="Script\JalaliJSCalendar-1.4\calendar-fa.js" />
+    <Content Include="Script\JalaliJSCalendar-1.4\calendar-setup.js" />
+    <Content Include="Script\JalaliJSCalendar-1.4\calendar.js" />
+    <Content Include="Script\JalaliJSCalendar-1.4\jalali.js" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\aqua\active-bg.gif" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\aqua\dark-bg.gif" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\aqua\hover-bg.gif" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\aqua\menuarrow.gif" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\aqua\normal-bg.gif" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\aqua\rowhover-bg.gif" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\aqua\status-bg.gif" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\aqua\theme.css" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\aqua\title-bg.gif" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\aqua\today-bg.gif" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\calendar-blue.css" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\calendar-blue2.css" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\calendar-brown.css" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\calendar-green.css" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\calendar-system.css" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\calendar-tas.css" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\calendar-win2k-1.css" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\calendar-win2k-2.css" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\calendar-win2k-cold-1.css" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\calendar-win2k-cold-2.css" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\menuarrow.gif" />
+    <Content Include="Script\JalaliJSCalendar-1.4\skins\menuarrow2.gif" />
+    <Content Include="Script\JIT\base.css" />
+    <Content Include="Script\JIT\excanvas.js" />
+    <Content Include="Script\JIT\jit.js" />
+    <Content Include="Script\jQuery\jquery.signalr_.js" />
+    <Content Include="Script\jQuery\highlight\highlight.pack.js" />
+    <Content Include="Script\jQuery\highlight\styles\vs.css" />
+    <Content Include="Script\jQuery\images\animated-overlay.gif" />
+    <Content Include="Script\jQuery\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Script\jQuery\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Script\jQuery\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Script\jQuery\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Script\jQuery\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Script\jQuery\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Script\jQuery\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Script\jQuery\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Script\jQuery\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Script\jQuery\images\ui-icons_222222_256x240.png" />
+    <Content Include="Script\jQuery\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Script\jQuery\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Script\jQuery\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Script\jQuery\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Script\jQuery\jAlerts\jquery.alerts.css" />
+    <Content Include="Script\jQuery\jAlerts\jquery.alerts.js" />
+    <Content Include="Script\jQuery\jCrop\jquery.Jcrop.css" />
+    <Content Include="Script\jQuery\jCrop\jquery.Jcrop.js" />
+    <Content Include="Script\jQuery\jquery-ui.css" />
+    <Content Include="Script\jQuery\jquery-ui.js" />
+    <Content Include="Script\jQuery\jquery.blockUI.js" />
+    <Content Include="Script\jQuery\jquery.cookie.js" />
+    <Content Include="Script\jQuery\jquery.dialogextend.js" />
+    <Content Include="Script\jQuery\jquery.hotkeys.js" />
+    <Content Include="Script\jQuery\jquery.hoverIntent.js" />
+    <Content Include="Script\jQuery\jquery.js" />
+    <Content Include="Script\jQuery\jquery.layout.js" />
+    <Content Include="Script\jQuery\jquery.mb.browser.js" />
+    <Content Include="Script\jQuery\jquery.min.js" />
+    <Content Include="Script\jQuery\jquery.mousewheel.js" />
+    <Content Include="Script\jQuery\jquery.rotate.js" />
+    <Content Include="Script\jQuery\jsonview\jquery.jsonview.css" />
+    <Content Include="Script\jQuery\jsonview\jquery.jsonview.js" />
+    <Content Include="Script\jQuery\jsTree\jquery.jstree.js" />
+    <Content Include="Script\jQuery\jsTree\themes\apple\bg.jpg" />
+    <Content Include="Script\jQuery\jsTree\themes\apple\d.png" />
+    <Content Include="Script\jQuery\jsTree\themes\apple\dot_for_ie.gif" />
+    <Content Include="Script\jQuery\jsTree\themes\apple\style.css" />
+    <Content Include="Script\jQuery\jsTree\themes\apple\throbber.gif" />
+    <Content Include="Script\jQuery\jsTree\themes\classic\d.gif" />
+    <Content Include="Script\jQuery\jsTree\themes\classic\d.png" />
+    <Content Include="Script\jQuery\jsTree\themes\classic\dot_for_ie.gif" />
+    <Content Include="Script\jQuery\jsTree\themes\classic\style.css" />
+    <Content Include="Script\jQuery\jsTree\themes\classic\throbber.gif" />
+    <Content Include="Script\jQuery\jsTree\themes\default-rtl\d.gif" />
+    <Content Include="Script\jQuery\jsTree\themes\default-rtl\d.png" />
+    <Content Include="Script\jQuery\jsTree\themes\default-rtl\dots.gif" />
+    <Content Include="Script\jQuery\jsTree\themes\default-rtl\style.css" />
+    <Content Include="Script\jQuery\jsTree\themes\default-rtl\throbber.gif" />
+    <Content Include="Script\jQuery\jsTree\themes\default\d.gif" />
+    <Content Include="Script\jQuery\jsTree\themes\default\d.png" />
+    <Content Include="Script\jQuery\jsTree\themes\default\style.css" />
+    <Content Include="Script\jQuery\jsTree\themes\default\throbber.gif" />
+    <Content Include="Script\jQuery\layout-default-latest.css" />
+    <Content Include="Script\jQuery\nanoScroller\jquery.nanoscroller.js" />
+    <Content Include="Script\jQuery\nanoScroller\nanoscroller.css" />
+    <Content Include="Script\jQuery\nanoScroller\overthrow.js" />
+    <Content Include="Script\jQuery\PopBox\PopBox.css" />
+    <Content Include="Script\jQuery\PopBox\PopBox.js" />
+    <Content Include="Script\jQuery\sortable\jquery.sortable.css" />
+    <Content Include="Script\jQuery\sortable\jquery.sortable.js" />
+    <Content Include="Script\jQuery\TagCanvas\jQuery.tagcanvas.js" />
+    <Content Include="Script\jQuery\TagCanvas\tagcanvas.js" />
+    <Content Include="Script\jQuery\TextNTags\jquery-textntags.css" />
+    <Content Include="Script\jQuery\TextNTags\jquery-textntags.js" />
+    <Content Include="Script\jQuery\Tooltip\jquery.tooltip.js" />
+    <Content Include="Script\jQuery\Tooltip\style.css" />
+    <Content Include="Script\jQuery\Tooltip\tooltip.gif" />
+    <Content Include="Script\json2.js" />
+    <Content Include="Script\Kendo\BlueOpal\editor.png" />
+    <Content Include="Script\Kendo\BlueOpal\imagebrowser.png" />
+    <Content Include="Script\Kendo\BlueOpal\loading-image.gif" />
+    <Content Include="Script\Kendo\BlueOpal\loading.gif" />
+    <Content Include="Script\Kendo\BlueOpal\slider-h.gif" />
+    <Content Include="Script\Kendo\BlueOpal\slider-v.gif" />
+    <Content Include="Script\Kendo\BlueOpal\sprite%402x.png" />
+    <Content Include="Script\Kendo\BlueOpal\sprite.png" />
+    <Content Include="Script\Kendo\kendo.blueopal.css" />
+    <Content Include="Script\Kendo\kendo.common.css" />
+    <Content Include="Script\Kendo\kendo.core.js" />
+    <Content Include="Script\Kendo\kendo.data.js" />
+    <Content Include="Script\Kendo\kendo.draganddrop.js" />
+    <Content Include="Script\Kendo\kendo.grid.js" />
+    <Content Include="Script\Kendo\kendo.pager.js" />
+    <Content Include="Script\Kendo\kendo.reorderable.js" />
+    <Content Include="Script\Kendo\kendo.resizable.js" />
+    <Content Include="Script\Kendo\kendo.selectable.js" />
+    <Content Include="Script\Kendo\kendo.slider.js" />
+    <Content Include="Script\Kendo\kendo.sortable.js" />
+    <Content Include="Script\Kendo\kendo.userevents.js" />
+    <Content Include="Script\KnowledgeTypes\KnowledgeAnswerOptions.js" />
+    <Content Include="Script\KnowledgeTypes\KnowledgeTypeQuestions.js" />
+    <Content Include="Script\KnowledgeTypes\KnowledgeTypeSettings.js" />
+    <Content Include="Script\KnowledgeTypes\NecessaryItemsSettings.js" />
+    <Content Include="Script\KW\FilledEvaluationForm.js" />
+    <Content Include="Script\KW\EvaluationForm.js" />
+    <Content Include="Script\KW\KnowledgeEvaluation.js" />
+    <Content Include="Script\KW\KnowledgeFeedback.js" />
+    <Content Include="Script\KnowledgeTypes\KnowledgeTypesManager.js" />
+    <Content Include="Script\KW\KnowledgeWorkFlow.js" />
+    <Content Include="Script\KW\ManageKnowledgeEvaluators.js" />
+    <Content Include="Script\Lang\en.js" />
+    <Content Include="Script\Lang\fa.js" />
+    <Content Include="Script\Lang\Help\fa.js" />
+    <Content Include="Script\Lang\Log\fa.js" />
+    <Content Include="Script\Lib\jsDiff.js" />
+    <Content Include="Script\Lib\underscore-min.js" />
+    <Content Include="Script\Lib\underscore.js" />
+    <Content Include="Script\LoginPage\lp_modern_28_1.js" />
+    <Content Include="Script\MediaManager\MediaManager.js" />
+    <Content Include="Script\MSG\Messaging.js" />
+    <Content Include="Script\MSG\NewMessage.js" />
+    <Content Include="Script\MSG\RChat.js" />
+    <Content Include="Script\Multimedia\IconSelect.js" />
+    <Content Include="Script\Multimedia\ImageCrop.js" />
+    <Content Include="Script\Multimedia\InlineImageCrop.js" />
+    <Content Include="Script\Multimedia\RSSViewer.js" />
+    <Content Include="Script\NetworkGraph\NetworkGraph.js" />
+    <Content Include="Script\Notifications\DashboardTypes.js" />
+    <Content Include="Script\Notifications\MessageTemplates.js" />
+    <Content Include="Script\Notifications\NotificationsViewer.js" />
+    <Content Include="Script\Notifications\SendMessageAdminSetting.js" />
+    <Content Include="Script\Notifications\SendMessageUserSetting.js" />
+    <Content Include="Script\Ontology\NodeSelect.js" />
+    <Content Include="Script\Ontology\OntologyMembersManager.js" />
+    <Content Include="Script\OverrideAlerts.js" />
+    <Content Include="Script\PDFViewer\PDFViewer.css" />
+    <Content Include="Script\PDFViewer\PDFViewer.js" />
+    <Content Include="Script\Polls\PollSettings.js" />
+    <Content Include="Script\Polls\PollsManager.js" />
+    <Content Include="Script\Polls\PollStart.js" />
+    <Content Include="Script\PrivacyManager\PermissionSetting.js" />
+    <Content Include="Script\Public\NameDialog.js" />
+    <Content Include="Script\Public\RVAccordion.js" />
+    <Content Include="Script\Public\SortDialog.js" />
+    <Content Include="Script\QA\FAQAdmin.js" />
+    <Content Include="Script\QA\FAQCategoryAdmin.js" />
+    <Content Include="Script\QA\FAQViewer\FAQViewer.css" />
+    <Content Include="Script\QA\FAQViewer\FAQViewer.js" />
+    <Content Include="Script\QA\NewQuestion.js" />
+    <Content Include="Script\QA\QACandidateRelations.js" />
+    <Content Include="Script\QA\QATags.js" />
+    <Content Include="Script\QA\QATagViewer.js" />
+    <Content Include="Script\QA\QAWorkFlows.js" />
+    <Content Include="Script\QA\QAWorkFlowSettings.js" />
+    <Content Include="Script\QA\QuestionMini.js" />
+    <Content Include="Script\QA\QuestionSelect.js" />
+    <Content Include="Script\QA\QuestionsPanel.js" />
+    <Content Include="Script\QA\QuestionView.js" />
+    <Content Include="Script\RaaiVanHelp\RaaiVanHelp.js" />
+    <Content Include="Script\RealTime\RaaiVanHub.js" />
+    <Content Include="Script\RemoteServers\RemoteServerSelector.js" />
+    <Content Include="Script\RemoteServers\RemoteServerSettings.js" />
+    <Content Include="Script\Reports\ReportOptions\CN_CreatorUsersReport.js" />
+    <Content Include="Script\Reports\ReportOptions\CN_MostFavoriteNodesReport.js" />
+    <Content Include="Script\Reports\ReportOptions\CN_NodeCreatedNodesReport.js" />
+    <Content Include="Script\Reports\ReportOptions\CN_NodeCreatorsReport.js" />
+    <Content Include="Script\Reports\ReportOptions\CN_NodeOwnNodesReport.js" />
+    <Content Include="Script\Reports\ReportOptions\CN_NodesCreatedNodesReport.js" />
+    <Content Include="Script\Reports\ReportOptions\CN_NodesListReport.js" />
+    <Content Include="Script\Reports\ReportOptions\CN_NodesOwnNodesReport.js" />
+    <Content Include="Script\Reports\ReportOptions\CN_DownloadedFilesReport.js" />
+    <Content Include="Script\Reports\ReportOptions\CN_UserCreatedNodesReport.js" />
+    <Content Include="Script\Reports\ReportOptions\FG_PollDetailReport.js" />
+    <Content Include="Script\Reports\ReportOptions\FG_FormsListReport.js" />
+    <Content Include="Script\Reports\ReportOptions\KW_KnowledgeEvaluationsDetailReport.js" />
+    <Content Include="Script\Reports\ReportOptions\KW_KnowledgeEvaluationsReport.js" />
+    <Content Include="Script\Reports\ReportOptions\RV_ErrorLogsReport.js" />
+    <Content Include="Script\Reports\ReportOptions\RV_KnowledgeDemandIndicatorsReport.js" />
+    <Content Include="Script\Reports\ReportOptions\RV_KnowledgeSupplyIndicatorsReport.js" />
+    <Content Include="Script\Reports\ReportOptions\RV_LogsReport.js" />
+    <Content Include="Script\Reports\ReportOptions\RV_OveralReport.js" />
+    <Content Include="Script\Reports\ReportOptions\RV_SocialContributionIndicatorsReport.js" />
+    <Content Include="Script\Reports\ReportOptions\USR_MostVisitedItemsReport.js" />
+    <Content Include="Script\Reports\ReportOptions\USR_ProfileFilledPercentageReport.js" />
+    <Content Include="Script\Reports\ReportOptions\USR_UsersListReport.js" />
+    <Content Include="Script\Reports\ReportOptions\USR_UsersPerformanceReport.js" />
+    <Content Include="Script\Reports\ReportOptions\USR_UsersWithSpecificPercentageOfFilledProfileReport.js" />
+    <Content Include="Script\Reports\ReportOptions\WF_NodesWorkFlowStatesReport.js" />
+    <Content Include="Script\Reports\ReportOptions\WF_StateNodesCountReport.js" />
+    <Content Include="Script\Reports\ReportsManager.js" />
+    <Content Include="Script\SearchManager\SearchManager.js" />
+    <Content Include="Script\SimpleListViewer\NewSimpleListViewer.js" />
+    <Content Include="Script\SingleDataContainer\NewSingleDataContainer.js" />
+    <Content Include="Script\Social\RelatedUsersViewer.js" />
+    <Content Include="Script\RVAdmin\SystemSettings.js" />
+    <Content Include="Script\TabsManager\TabsManager.js" />
+    <Content Include="Script\TeamSelect\TeamSelect.js" />
+    <Content Include="Script\Templates\TemplateGallery.js" />
+    <Content Include="Script\Templates\TemplateParser.js" />
+    <Content Include="Script\Templates\TemplateViewer.js" />
+    <Content Include="Script\TextEncoding.js" />
+    <Content Include="Script\TreeNodeViewer\TreeNodeViewer.js" />
+    <Content Include="Script\TreeViewContainer\TreeMaker.js" />
+    <Content Include="Script\TreeViewContainer\TreeViewContainer.js" />
+    <Content Include="Script\TreeView\TreeView.js" />
+    <Content Include="Script\UserViewer\FullViewer.js" />
+    <Content Include="Script\USR\ApplicationsManager.js" />
+    <Content Include="Script\USR\ChangePasswordDialog.js" />
+    <Content Include="Script\USR\HomePageMainContent.js" />
+    <Content Include="Script\USR\LoginPageInitializer.js" />
+    <Content Include="Script\USR\MasterPageBuilder.js" />
+    <Content Include="Script\USR\AdvancedUserSearch.js" />
+    <Content Include="Script\USR\HomePageSideInfo.js" />
+    <Content Include="Script\USR\CoverPhoto.js" />
+    <Content Include="Script\USR\Invitation.js" />
+    <Content Include="Script\USR\LoginControl.js" />
+    <Content Include="Script\USR\PersonalPageInitializer.js" />
+    <Content Include="Script\USR\RelatedUsersManager.js" />
+    <Content Include="Script\USR\Resume.js" />
+    <Content Include="Script\USR\UserConnections.js" />
+    <Content Include="Script\USR\UserGroupSettings.js" />
+    <Content Include="Script\USR\UserGroupsManager.js" />
+    <Content Include="Script\USR\UserInvitations.js" />
+    <Content Include="Script\USR\UserProfile.js" />
+    <Content Include="Script\USR\UserSelect.js" />
+    <Content Include="Script\USR\UserSettings.js" />
+    <Content Include="Script\USR\UserSignUp.js" />
+    <Content Include="Script\USR\UsersManager.js" />
+    <Content Include="Script\Vis\img\network\acceptDeleteIcon.png" />
+    <Content Include="Script\Vis\img\network\addNodeIcon.png" />
+    <Content Include="Script\Vis\img\network\backIcon.png" />
+    <Content Include="Script\Vis\img\network\connectIcon.png" />
+    <Content Include="Script\Vis\img\network\cross.png" />
+    <Content Include="Script\Vis\img\network\cross2.png" />
+    <Content Include="Script\Vis\img\network\deleteIcon.png" />
+    <Content Include="Script\Vis\img\network\downArrow.png" />
+    <Content Include="Script\Vis\img\network\editIcon.png" />
+    <Content Include="Script\Vis\img\network\leftArrow.png" />
+    <Content Include="Script\Vis\img\network\minus.png" />
+    <Content Include="Script\Vis\img\network\plus.png" />
+    <Content Include="Script\Vis\img\network\rightArrow.png" />
+    <Content Include="Script\Vis\img\network\upArrow.png" />
+    <Content Include="Script\Vis\img\network\zoomExtends.png" />
+    <Content Include="Script\Vis\vis-network.min.css" />
+    <Content Include="Script\Vis\vis-network.min.js" />
+    <Content Include="Script\Vis\vis.css" />
+    <Content Include="Script\Vis\vis.js" />
+    <Content Include="Script\Wiki\WikiManager.js" />
+    <Content Include="Script\WorkFlowManager\AutoMessageManager.js" />
+    <Content Include="Script\WorkFlowManager\ConnectionManager.js" />
+    <Content Include="Script\WorkFlowManager\DataNeedsManager.js" />
+    <Content Include="Script\WorkFlowManager\HistoryViewer.js" />
+    <Content Include="Script\WorkFlowManager\NeededFormsManager.js" />
+    <Content Include="Script\WorkFlowManager\RejectionSettings.js" />
+    <Content Include="Script\WorkFlowManager\ResponsibleManager.js" />
+    <Content Include="Script\WorkFlowManager\StateDataNeedInstanceViewer.js" />
+    <Content Include="Script\WorkFlowManager\StateManager.js" />
+    <Content Include="Script\WorkFlowManager\WorkFlowManager.js" />
+    <Content Include="Script\WorkFlowManager\WorkFlowOwner.js" />
+    <Content Include="Script\WorkFlowManager\WorkFlowsManager.js" />
+    <Content Include="Script\WorkFlowManager\WorkFlowViewer.js" />
+    <Content Include="Services\CoreNetwork.asmx" />
+    <Content Include="Services\Knowledge.asmx" />
+    <Content Include="Global.asax" />
+    <Content Include="sql_map.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\API.ashx.cs">
+      <DependentUpon>API.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\Beta\APOMaturityAssessment.cs" />
+    <Compile Include="API\Util\AccessChecker.cs" />
+    <Compile Include="API\Util\AuthorizationManager.cs" />
+    <Compile Include="API\CNAPI.ashx.cs">
+      <DependentUpon>CNAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\DocsAPI.ashx.cs">
+      <DependentUpon>DocsAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\EventsAPI.ashx.cs">
+      <DependentUpon>EventsAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\ExpertsAPI.ashx.cs">
+      <DependentUpon>ExpertsAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\FGAPI.ashx.cs">
+      <DependentUpon>FGAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\Download.ashx.cs">
+      <DependentUpon>Download.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\Upload.ashx.cs">
+      <DependentUpon>Upload.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\KnowledgeAPI.ashx.cs">
+      <DependentUpon>KnowledgeAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\ImportAPI.ashx.cs">
+      <DependentUpon>ImportAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\MessagesAPI.ashx.cs">
+      <DependentUpon>MessagesAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\NotificationsAPI.ashx.cs">
+      <DependentUpon>NotificationsAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\PDFAPI.ashx.cs">
+      <DependentUpon>PDFAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\PrivacyAPI.ashx.cs">
+      <DependentUpon>PrivacyAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\QAAPI.ashx.cs">
+      <DependentUpon>QAAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\Util\LoginUtil.cs" />
+    <Compile Include="API\Util\PDFTemplates.cs" />
+    <Compile Include="API\Util\RaaiVanUtil.cs" />
+    <Compile Include="API\ReportsAPI.ashx.cs">
+      <DependentUpon>ReportsAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\RSSAPI.ashx.cs">
+      <DependentUpon>RSSAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\RVAPI.ashx.cs">
+      <DependentUpon>RVAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\Util\RestAPI.cs" />
+    <Compile Include="API\Util\RouteData.cs" />
+    <Compile Include="API\Util\RVScheduler.cs" />
+    <Compile Include="API\SearchAPI.ashx.cs">
+      <DependentUpon>SearchAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\UsersAPI.ashx.cs">
+      <DependentUpon>UsersAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="API\Util\Template.cs" />
+    <Compile Include="API\Util\ThemeUtil.cs" />
+    <Compile Include="API\Util\VerificationCode.cs" />
+    <Compile Include="API\Util\Wiki2PDF.cs" />
+    <Compile Include="API\WikiAPI.ashx.cs">
+      <DependentUpon>WikiAPI.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\DosAttackModule.cs" />
+    <Compile Include="API\Util\RVSqlProviders.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HostNameTenantResolver.cs" />
+    <Compile Include="Hubs\RaaiVanHub.cs" />
+    <Compile Include="OwinExtensions.cs" />
+    <Compile Include="Page\Master\MainMaster.Master.cs">
+      <DependentUpon>MainMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Master\MainMaster.Master.designer.cs">
+      <DependentUpon>MainMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Master\TopMaster.Master.cs">
+      <DependentUpon>TopMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Master\TopMaster.Master.designer.cs">
+      <DependentUpon>TopMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\Classifications.aspx.cs">
+      <DependentUpon>Classifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\Classifications.aspx.designer.cs">
+      <DependentUpon>Classifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\Configuration.aspx.cs">
+      <DependentUpon>Configuration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\Configuration.aspx.designer.cs">
+      <DependentUpon>Configuration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\DataImport.aspx.cs">
+      <DependentUpon>DataImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\DataImport.aspx.designer.cs">
+      <DependentUpon>DataImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\DocumentTrees.aspx.cs">
+      <DependentUpon>DocumentTrees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\DocumentTrees.aspx.designer.cs">
+      <DependentUpon>DocumentTrees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\Forms.aspx.cs">
+      <DependentUpon>Forms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\Forms.aspx.designer.cs">
+      <DependentUpon>Forms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\Help.aspx.designer.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\Knowledge.aspx.cs">
+      <DependentUpon>Knowledge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\Knowledge.aspx.designer.cs">
+      <DependentUpon>Knowledge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\Map.aspx.cs">
+      <DependentUpon>Map.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\Map.aspx.designer.cs">
+      <DependentUpon>Map.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\Notifications.aspx.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\Notifications.aspx.designer.cs">
+      <DependentUpon>Notifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\Polls.aspx.cs">
+      <DependentUpon>Polls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\Polls.aspx.designer.cs">
+      <DependentUpon>Polls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\QAWorkflow.aspx.cs">
+      <DependentUpon>QAWorkflow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\QAWorkflow.aspx.designer.cs">
+      <DependentUpon>QAWorkflow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\RemoteServers.aspx.cs">
+      <DependentUpon>RemoteServers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\RemoteServers.aspx.designer.cs">
+      <DependentUpon>RemoteServers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\SystemSettings.aspx.cs">
+      <DependentUpon>SystemSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\SystemSettings.aspx.designer.cs">
+      <DependentUpon>SystemSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\UserGroups.aspx.cs">
+      <DependentUpon>UserGroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\UserGroups.aspx.designer.cs">
+      <DependentUpon>UserGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Setting\Workflows.aspx.cs">
+      <DependentUpon>Workflows.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\Setting\Workflows.aspx.designer.cs">
+      <DependentUpon>Workflows.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\AccessDenied.aspx.designer.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Applications.aspx.cs">
+      <DependentUpon>Applications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Applications.aspx.designer.cs">
+      <DependentUpon>Applications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Classes.aspx.cs">
+      <DependentUpon>Classes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Classes.aspx.designer.cs">
+      <DependentUpon>Classes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Explorer.aspx.cs">
+      <DependentUpon>Explorer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Explorer.aspx.designer.cs">
+      <DependentUpon>Explorer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Form.aspx.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Form.aspx.designer.cs">
+      <DependentUpon>Form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Graph.aspx.cs">
+      <DependentUpon>Graph.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Graph.aspx.designer.cs">
+      <DependentUpon>Graph.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Help.aspx.designer.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Messages.aspx.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Messages.aspx.designer.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Network.aspx.cs">
+      <DependentUpon>Network.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Network.aspx.designer.cs">
+      <DependentUpon>Network.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\NewNode.aspx.cs">
+      <DependentUpon>NewNode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\NewNode.aspx.designer.cs">
+      <DependentUpon>NewNode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\NewQuestion.aspx.cs">
+      <DependentUpon>NewQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\NewQuestion.aspx.designer.cs">
+      <DependentUpon>NewQuestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Node.aspx.cs">
+      <DependentUpon>Node.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Node.aspx.designer.cs">
+      <DependentUpon>Node.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Posts.aspx.cs">
+      <DependentUpon>Posts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Posts.aspx.designer.cs">
+      <DependentUpon>Posts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\QA.aspx.cs">
+      <DependentUpon>QA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\QA.aspx.designer.cs">
+      <DependentUpon>QA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\QATag.aspx.cs">
+      <DependentUpon>QATag.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\QATag.aspx.designer.cs">
+      <DependentUpon>QATag.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Question.aspx.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Question.aspx.designer.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\RemoteSearch.aspx.cs">
+      <DependentUpon>RemoteSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\RemoteSearch.aspx.designer.cs">
+      <DependentUpon>RemoteSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page\View\SearchUsers.aspx.cs">
+      <DependentUpon>SearchUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page\View\SearchUsers.aspx.designer.cs">
+      <DependentUpon>SearchUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CoreNetwork.asmx.cs">
+      <DependentUpon>CoreNetwork.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\Knowledge.asmx.cs">
+      <DependentUpon>Knowledge.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="TenantCoreMiddleware.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="App_Themes\" />
+    <Folder Include="Global_Documents\" />
+    <Folder Include="Script\PDFViewer\Cursor\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="API\Upload.ashx" />
+    <Content Include="API\Download.ashx" />
+    <Content Include="API\ImportAPI.ashx" />
+    <Content Include="API\API.ashx" />
+    <Content Include="API\QAAPI.ashx" />
+    <Content Include="Page\Master\TopMaster.Master" />
+    <Content Include="API\KnowledgeAPI.ashx" />
+    <Content Include="API\CNAPI.ashx" />
+    <Content Include="API\FGAPI.ashx" />
+    <Content Include="API\NotificationsAPI.ashx" />
+    <Content Include="API\DocsAPI.ashx" />
+    <Content Include="API\PDFAPI.ashx" />
+    <Content Include="API\PrivacyAPI.ashx" />
+    <Content Include="API\SearchAPI.ashx" />
+    <Content Include="API\WikiAPI.ashx" />
+    <Content Include="API\RVAPI.ashx" />
+    <Content Include="API\RSSAPI.ashx" />
+    <Content Include="API\ReportsAPI.ashx" />
+    <Content Include="API\UsersAPI.ashx" />
+    <Content Include="API\MessagesAPI.ashx" />
+    <Content Include="API\EventsAPI.ashx" />
+    <Content Include="API\ExpertsAPI.ashx" />
+    <Content Include="libman.json" />
+    <Content Include="Page\Master\MainMaster.Master" />
+    <Content Include="Fonts\BKoodak\BKoodakBold.eot" />
+    <Content Include="Fonts\BKoodak\BKoodakBold.ttf" />
+    <Content Include="Fonts\BKoodak\BKoodakBold.woff" />
+    <Content Include="Fonts\DroidNaskhRegular\DroidNaskhRegular.ttf" />
+    <Content Include="Images\loading.json" />
+    <None Include="Properties\PublishProfiles\Default - AnyCPU.pubxml" />
+    <None Include="Properties\PublishProfiles\Default - x64.pubxml" />
+    <Content Include="Script\DataTables\Persian.json" />
+    <Content Include="_Web.config" />
+    <None Include="Properties\PublishProfiles\local_x64.pubxml" />
+    <Content Include="raaivan.license" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modules\CoreNetwork\CoreNetwork.csproj">
+      <Project>{064b0ebe-7a12-4082-9a1c-5f96f3c2e990}</Project>
+      <Name>CoreNetwork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\DataExchange\DataExchange.csproj">
+      <Project>{5775df2f-c737-4bf4-a610-e1a73e782615}</Project>
+      <Name>DataExchange</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Documents\Documents.csproj">
+      <Project>{dcc8e88f-b8ac-41c8-ba0d-b0537c15ed56}</Project>
+      <Name>Documents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Events\Events.csproj">
+      <Project>{278f027c-dca0-46c4-ad0c-fdc411237446}</Project>
+      <Name>Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\FormGenerator\FormGenerator.csproj">
+      <Project>{9bd7f493-2515-4884-96b4-7b9912c38593}</Project>
+      <Name>FormGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\GlobalUtilities\GlobalUtilities.csproj">
+      <Project>{2b4f83ef-6e5d-49b7-a54e-6c72d0b3b9a4}</Project>
+      <Name>GlobalUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Jobs\Jobs.csproj">
+      <Project>{729ef91c-de5e-430a-9696-bb187d0120f6}</Project>
+      <Name>Jobs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Knowledge\Knowledge.csproj">
+      <Project>{eb97c3a4-7d4a-47af-9ca1-3d56a075dd30}</Project>
+      <Name>Knowledge</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Log\Log.csproj">
+      <Project>{6861294c-2a08-4c7b-9cdd-af2f9b3dd13c}</Project>
+      <Name>Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Messaging\Messaging.csproj">
+      <Project>{61ba0b0d-b27b-49c4-bdd1-e9f54369b530}</Project>
+      <Name>Messaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\NotificationCenter\NotificationCenter.csproj">
+      <Project>{7e74a5ae-2422-4d87-98e8-77f100e35149}</Project>
+      <Name>NotificationCenter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Privacy\Privacy.csproj">
+      <Project>{a9ec2a73-025c-4c50-975a-b44f0618f4b0}</Project>
+      <Name>Privacy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\QA\QA.csproj">
+      <Project>{2aafef43-5fe9-4de2-9a1d-635de68e3347}</Project>
+      <Name>QA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\RaaiVanConfig\RaaiVanConfig.csproj">
+      <Project>{d54aebe3-5826-4a94-bfd9-4029612a89b1}</Project>
+      <Name>RaaiVanConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Reports\Reports.csproj">
+      <Project>{f8feec93-daf8-418b-a2e1-e5a99722fe52}</Project>
+      <Name>Reports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\RSS\RSS.csproj">
+      <Project>{9edf20f2-5bda-43ab-b00f-4abdf084bbf4}</Project>
+      <Name>RSS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Search\Search.csproj">
+      <Project>{4b31d505-bc28-4886-be27-538ba154b60e}</Project>
+      <Name>Search</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Users\Users.csproj">
+      <Project>{b2f7609d-fe8d-4518-85bc-d03f081362da}</Project>
+      <Name>Users</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Wiki\Wiki.csproj">
+      <Project>{86af0012-c95b-4e91-aa67-78191e1f31eb}</Project>
+      <Name>Wiki</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20470</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/KnowledgeManagement.UI.WebApplication</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

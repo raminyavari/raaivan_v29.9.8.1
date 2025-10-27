@@ -1,0 +1,35 @@
+USE [EKM_App]
+GO
+
+
+CREATE TABLE [dbo].[MSG_Messages](
+	[MessageID]				UNIQUEIDENTIFIER NOT NULL,
+	[Title]					NVARCHAR(500) NULL,
+	[MessageText]			NVARCHAR(MAX) NOT NULL,
+	[SenderUserID]			UNIQUEIDENTIFIER NOT NULL,
+	[SendDate]				DATETIME NOT NULL,
+	[ForwardedFrom]			UNIQUEIDENTIFIER NULL,
+	[HasAttachment]			BIT NOT NULL
+	CONSTRAINT [PK_MSG_Messages] PRIMARY KEY CLUSTERED 
+	(
+		[MessageID] ASC
+	) WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+ALTER TABLE [dbo].[MSG_Messages] WITH CHECK ADD CONSTRAINT [FK_MSG_Messages_MSG_Messages] FOREIGN KEY([ForwardedFrom])
+REFERENCES [dbo].[MSG_Messages] ([MessageID])
+GO
+
+ALTER TABLE [dbo].[MSG_Messages] CHECK CONSTRAINT [FK_MSG_Messages_MSG_Messages]
+GO
+
+
+ALTER TABLE [dbo].[MSG_Messages] WITH CHECK ADD CONSTRAINT [FK_MSG_Messages_aspnet_Users] FOREIGN KEY([SenderUserID])
+REFERENCES [dbo].[aspnet_Users] ([UserID])
+GO
+
+ALTER TABLE [dbo].[MSG_Messages] CHECK CONSTRAINT [FK_MSG_Messages_MSG_Messages]
+GO
+

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AddNodeType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nodeTypeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="typeName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNodeTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddNodeTypeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nodeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeTypeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parentNodeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddNodeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyNode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nodeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeTypeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyNodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModifyNodeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MoveNode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nodeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parentNodeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeTypeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MoveNodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MoveNodeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nodeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeTypeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddMemberResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nodeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeTypeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveMemberResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nodeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeTypeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetAdminResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnsetAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nodeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nodeTypeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnsetAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnsetAdminResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddNodeTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNodeType" />
+  </wsdl:message>
+  <wsdl:message name="AddNodeTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNodeTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNodeSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNode" />
+  </wsdl:message>
+  <wsdl:message name="AddNodeSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyNodeSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyNode" />
+  </wsdl:message>
+  <wsdl:message name="ModifyNodeSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="MoveNodeSoapIn">
+    <wsdl:part name="parameters" element="tns:MoveNode" />
+  </wsdl:message>
+  <wsdl:message name="MoveNodeSoapOut">
+    <wsdl:part name="parameters" element="tns:MoveNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMember" />
+  </wsdl:message>
+  <wsdl:message name="AddMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveMember" />
+  </wsdl:message>
+  <wsdl:message name="RemoveMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:SetAdmin" />
+  </wsdl:message>
+  <wsdl:message name="SetAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:SetAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnsetAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:UnsetAdmin" />
+  </wsdl:message>
+  <wsdl:message name="UnsetAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:UnsetAdminResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CoreNetworkSoap">
+    <wsdl:operation name="AddNodeType">
+      <wsdl:input message="tns:AddNodeTypeSoapIn" />
+      <wsdl:output message="tns:AddNodeTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNode">
+      <wsdl:input message="tns:AddNodeSoapIn" />
+      <wsdl:output message="tns:AddNodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyNode">
+      <wsdl:input message="tns:ModifyNodeSoapIn" />
+      <wsdl:output message="tns:ModifyNodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveNode">
+      <wsdl:input message="tns:MoveNodeSoapIn" />
+      <wsdl:output message="tns:MoveNodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMember">
+      <wsdl:input message="tns:AddMemberSoapIn" />
+      <wsdl:output message="tns:AddMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMember">
+      <wsdl:input message="tns:RemoveMemberSoapIn" />
+      <wsdl:output message="tns:RemoveMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAdmin">
+      <wsdl:input message="tns:SetAdminSoapIn" />
+      <wsdl:output message="tns:SetAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnsetAdmin">
+      <wsdl:input message="tns:UnsetAdminSoapIn" />
+      <wsdl:output message="tns:UnsetAdminSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CoreNetworkSoap" type="tns:CoreNetworkSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddNodeType">
+      <soap:operation soapAction="http://tempuri.org/AddNodeType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNode">
+      <soap:operation soapAction="http://tempuri.org/AddNode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyNode">
+      <soap:operation soapAction="http://tempuri.org/ModifyNode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveNode">
+      <soap:operation soapAction="http://tempuri.org/MoveNode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMember">
+      <soap:operation soapAction="http://tempuri.org/AddMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMember">
+      <soap:operation soapAction="http://tempuri.org/RemoveMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAdmin">
+      <soap:operation soapAction="http://tempuri.org/SetAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnsetAdmin">
+      <soap:operation soapAction="http://tempuri.org/UnsetAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CoreNetworkSoap12" type="tns:CoreNetworkSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddNodeType">
+      <soap12:operation soapAction="http://tempuri.org/AddNodeType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNode">
+      <soap12:operation soapAction="http://tempuri.org/AddNode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyNode">
+      <soap12:operation soapAction="http://tempuri.org/ModifyNode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveNode">
+      <soap12:operation soapAction="http://tempuri.org/MoveNode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMember">
+      <soap12:operation soapAction="http://tempuri.org/AddMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMember">
+      <soap12:operation soapAction="http://tempuri.org/RemoveMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAdmin">
+      <soap12:operation soapAction="http://tempuri.org/SetAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnsetAdmin">
+      <soap12:operation soapAction="http://tempuri.org/UnsetAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CoreNetwork">
+    <wsdl:port name="CoreNetworkSoap" binding="tns:CoreNetworkSoap">
+      <soap:address location="http://127.0.0.1:1234/Services/CoreNetwork.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CoreNetworkSoap12" binding="tns:CoreNetworkSoap12">
+      <soap12:address location="http://127.0.0.1:1234/Services/CoreNetwork.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

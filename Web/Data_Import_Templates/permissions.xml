@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Permissions>
+  <Item nodetypeid="[NodeTypeAdditionalID]" nodeid="[NodeAdditionalID]"
+          grouptypeid="[NodeTypeAdditionalID]" groupid="[NodeAdditionalID]"
+          username="[UserName]" permission="[View|ViewAbstract|ViewRelatedItems|Download|Modify|Delete]"
+          deny="[boolean]" drop_all="[boolean]">
+  </Item>
+  <Item nodetypeid="[NodeTypeAdditionalID]" nodeid="[NodeAdditionalID]"
+            grouptypeid="[NodeTypeAdditionalID]" groupid="[NodeAdditionalID]"
+            username="[UserName]" permission="[View|ViewAbstract|ViewRelatedItems|Download|Modify|Delete]"
+            deny="[boolean]" drop_all="[boolean]">
+  </Item>
+</Permissions>

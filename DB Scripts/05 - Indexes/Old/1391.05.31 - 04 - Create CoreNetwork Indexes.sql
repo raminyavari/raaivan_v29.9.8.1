@@ -1,0 +1,50 @@
+/****** Object:  StoredProcedure [dbo].[AddFolder]    Script Date: 03/14/2012 11:38:59 ******/
+USE [EKM_App]
+Go
+
+IF NOT EXISTS(SELECT * 
+FROM sys.indexes WHERE name='IX_CN_Nodes_NodeTypeID' AND object_id = OBJECT_ID('CN_Nodes'))
+CREATE NONCLUSTERED INDEX [IX_CN_Nodes_NodeTypeID] ON [dbo].[CN_Nodes] 
+(
+	[NodeTypeID] ASC,
+	[NodeID] ASC,
+	[Name] ASC,
+	[Deleted] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
+
+IF NOT EXISTS(SELECT * 
+FROM sys.indexes WHERE name='IX_CN_NodeRelations' AND object_id = OBJECT_ID('CN_NodeRelations'))
+CREATE NONCLUSTERED INDEX [IX_CN_NodeRelations] ON [dbo].[CN_NodeRelations] 
+(
+	[DestinationNodeID] ASC,
+	[SourceNodeID] ASC,
+	[PropertyID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
+
+IF NOT EXISTS(SELECT * 
+FROM sys.indexes WHERE name='IX_CN_NodeMembers_UserID' AND object_id = OBJECT_ID('CN_NodeMembers'))
+CREATE NONCLUSTERED INDEX [IX_CN_NodeMembers_UserID] ON [dbo].[CN_NodeMembers] 
+(
+	[UserID] ASC,
+	[NodeID] ASC,
+	[IsAdmin] ASC,
+	[Status] ASC,
+	[Deleted] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
+
+IF NOT EXISTS(SELECT * 
+FROM sys.indexes WHERE name='IX_CN_NodeLikes_UserID' AND object_id = OBJECT_ID('CN_NodeLikes'))
+CREATE NONCLUSTERED INDEX [IX_CN_NodeLikes_UserID] ON [dbo].[CN_NodeLikes] 
+(
+	[UserID] ASC,
+	[NodeID] ASC,
+	[LikeDate] ASC,
+	[Deleted] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO

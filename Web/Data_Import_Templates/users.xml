@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Users>
+  <User username="[UserName]" newusername="[NewUserName]" firstname="[FirstName]" lastname="[LastName]" 
+        resetpassword="[true|false]">
+  </User>
+  <User username="[UserName]" newusername="[NewUserName]" firstname="[FirstName]" lastname="[LastName]"
+        resetpassword="[true|false]">
+  </User>
+</Users>

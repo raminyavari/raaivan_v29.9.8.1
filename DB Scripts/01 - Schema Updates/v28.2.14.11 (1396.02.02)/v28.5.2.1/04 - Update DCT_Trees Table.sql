@@ -1,0 +1,22 @@
+USE [EKM_App]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+ALTER TABLE [dbo].[DCT_Trees]
+ADD RefTreeID uniqueidentifier NULL
+GO
+
+
+ALTER TABLE [dbo].[DCT_Trees]  WITH CHECK ADD  CONSTRAINT [FK_DCT_Trees_DCT_Trees_RefTree] FOREIGN KEY([RefTreeID])
+REFERENCES [dbo].[DCT_Trees] ([TreeID])
+GO
+
+ALTER TABLE [dbo].[DCT_Trees] CHECK CONSTRAINT [FK_DCT_Trees_DCT_Trees_RefTree]
+GO

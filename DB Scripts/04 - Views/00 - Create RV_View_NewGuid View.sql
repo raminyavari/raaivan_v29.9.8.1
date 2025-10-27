@@ -1,0 +1,19 @@
+USE [EKM_App]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF EXISTS(select * FROM sys.views where name = 'RV_View_NewGuid')
+DROP VIEW [dbo].[RV_View_NewGuid]
+GO
+
+
+CREATE VIEW [dbo].[RV_View_NewGuid] WITH ENCRYPTION
+AS
+SELECT NEWID() AS ID
+
+GO

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24.595" height="26.759" viewBox="0 0 24.595 26.759">
+  <g id="Group_108" data-name="Group 108" transform="translate(-1782.6 -323.6)">
+    <g id="Group_107" data-name="Group 107">
+      <g id="Group_106" data-name="Group 106">
+        <g id="copy" transform="translate(1782 324)">
+          <path id="Path_50" data-name="Path 50" d="M21.683,25.632H8.7a2.707,2.707,0,0,1-2.7-2.7V6.7A2.707,2.707,0,0,1,8.7,4H21.683a2.707,2.707,0,0,1,2.7,2.7V22.928A2.707,2.707,0,0,1,21.683,25.632ZM8.7,5.082A1.624,1.624,0,0,0,7.082,6.7V22.928A1.624,1.624,0,0,0,8.7,24.551H21.683a1.624,1.624,0,0,0,1.622-1.622V6.7a1.624,1.624,0,0,0-1.622-1.622Z" transform="translate(0.408 0.326)" fill="#fff" stroke="#fff" stroke-width="0.8"/>
+          <path id="Path_51" data-name="Path 51" d="M4.786,22.714H3.7A2.707,2.707,0,0,1,1,20.01V2.7A2.707,2.707,0,0,1,3.7,0H16.683a2.707,2.707,0,0,1,2.7,2.7.541.541,0,0,1-1.082,0,1.624,1.624,0,0,0-1.622-1.622H3.7A1.624,1.624,0,0,0,2.082,2.7V20.01A1.624,1.624,0,0,0,3.7,21.632H4.786a.541.541,0,1,1,0,1.082Z" fill="#fff" stroke="#fff" stroke-width="0.8"/>
+          <path id="Path_52" data-name="Path 52" d="M19.194,17.082H10.541a.541.541,0,1,1,0-1.082h8.653a.541.541,0,1,1,0,1.082Z" transform="translate(0.734 1.306)" fill="#fff" stroke="#fff" stroke-width="0.8"/>
+          <path id="Path_53" data-name="Path 53" d="M19.194,21.082H10.541a.541.541,0,1,1,0-1.082h8.653a.541.541,0,1,1,0,1.082Z" transform="translate(0.734 1.632)" fill="#fff" stroke="#fff" stroke-width="0.8"/>
+          <path id="Path_54" data-name="Path 54" d="M19.194,13.082H10.541a.541.541,0,0,1,0-1.082h8.653a.541.541,0,1,1,0,1.082Z" transform="translate(0.734 0.979)" fill="#fff" stroke="#fff" stroke-width="0.8"/>
+          <path id="Path_55" data-name="Path 55" d="M19.194,9.082H10.541a.541.541,0,0,1,0-1.082h8.653a.541.541,0,1,1,0,1.082Z" transform="translate(0.734 0.653)" fill="#fff" stroke="#fff" stroke-width="0.8"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

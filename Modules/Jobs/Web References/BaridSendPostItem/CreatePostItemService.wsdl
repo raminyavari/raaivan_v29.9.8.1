@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Baridsoft.ir/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://Baridsoft.ir/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Baridsoft.ir/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticketId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogOutResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SendPostItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="receiverNationalCode" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="webAttachmewntList" type="tns:ArrayOfWebAttachment" />
+            <s:element minOccurs="1" maxOccurs="1" name="importanceType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sensitivityType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWebAttachment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebAttachment" nillable="true" type="tns:WebAttachment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebAttachment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FileExtention" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileContent" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendPostItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendPostItemResult" type="tns:WebSendPostItemType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="WebSendPostItemType">
+        <s:restriction base="s:string">
+          <s:enumeration value="SendSuccessful" />
+          <s:enumeration value="SendFaild" />
+          <s:enumeration value="UserNotFound" />
+          <s:enumeration value="LoginFaild" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogOutSoapIn">
+    <wsdl:part name="parameters" element="tns:LogOut" />
+  </wsdl:message>
+  <wsdl:message name="LogOutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendPostItemSoapIn">
+    <wsdl:part name="parameters" element="tns:SendPostItem" />
+  </wsdl:message>
+  <wsdl:message name="SendPostItemSoapOut">
+    <wsdl:part name="parameters" element="tns:SendPostItemResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CreatePostItemServiceSoap">
+    <wsdl:operation name="Login">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">انجام عمل شناسائی و صادر نمودن مجوز ورود به سیستم</wsdl:documentation>
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">خارج شدن از سیستم</wsdl:documentation>
+      <wsdl:input message="tns:LogOutSoapIn" />
+      <wsdl:output message="tns:LogOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPostItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ارسال پیام</wsdl:documentation>
+      <wsdl:input message="tns:SendPostItemSoapIn" />
+      <wsdl:output message="tns:SendPostItemSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CreatePostItemServiceSoap" type="tns:CreatePostItemServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://Baridsoft.ir/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <soap:operation soapAction="http://Baridsoft.ir/LogOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendPostItem">
+      <soap:operation soapAction="http://Baridsoft.ir/SendPostItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CreatePostItemServiceSoap12" type="tns:CreatePostItemServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://Baridsoft.ir/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <soap12:operation soapAction="http://Baridsoft.ir/LogOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendPostItem">
+      <soap12:operation soapAction="http://Baridsoft.ir/SendPostItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CreatePostItemService">
+    <wsdl:port name="CreatePostItemServiceSoap" binding="tns:CreatePostItemServiceSoap">
+      <soap:address location="http://localhost:42510/CreatePostItemService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CreatePostItemServiceSoap12" binding="tns:CreatePostItemServiceSoap12">
+      <soap12:address location="http://localhost:42510/CreatePostItemService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TopMaster.master.cs" Inherits="RaaiVan.Web.Page.Master.TopMaster"
+    MasterPageFile="~/Page/Master/MainMaster.Master" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainMasterBodySection" runat="server">
+    <!-- CSRF Refresh: In order to refresh CSRF Token after page load when page is loaded after back button click -->
+    <input id="backbuttonstate" type="text" value="0" style="display:none;" />
+    <script type="text/javascript">
+        var ibackbutton = document.getElementById("backbuttonstate");
+        if (ibackbutton) document.addEventListener('DOMContentLoaded', function () {
+            if (ibackbutton.value == "0") ibackbutton.value = "1";
+            else window.location.href = window.location.href;
+        }, false);
+    </script>
+    <!-- end of CSRF Refresh -->
+
+    <div id="masterContentSection" class="small-12 medium-12 large-12 rv-content-section" style="position:relative; padding-top:0.5rem;">
+		<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+	</div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            //Set document attributes
+            if (RVGlobal.BackgroundColor) document.body.style.backgroundColor = RVGlobal.BackgroundColor;
+            document.title = Base64.decode(window.RVGlobal.SystemTitle);
+            //end of Set document attributes
+
+            window.MasterPageHandler = new MasterPageBuilder({ ContentSection: document.getElementById("masterContentSection") });
+
+            if (RVGlobal.SAASBasedMultiTenancy && !RVGlobal.IsDev) {
+                !function () {
+                    var a = window,
+                        d = document;
+
+                    function g() {
+                        var g = d.createElement("script"),
+                            s = "https://www.goftino.com/widget/kwPEkh",
+                            l = localStorage.getItem("goftino");
+
+                        g.type = "text/javascript",
+                            g.async = !0,
+                            g.src = l ? s + "?o=" + l : s;
+
+                        d.getElementsByTagName("head")[0].appendChild(g);
+
+                    }
+
+                    "complete" === d.readyState ? g() : a.attachEvent ? a.attachEvent("onload", g) : a.addEventListener("load", g, !1);
+                }();
+                /*
+                GlobalUtilities.create_nested_elements([{
+                    Type: "div", Style: "position:fixed; left:0.5rem; bottom:0.5rem;",
+                    Childs: [{
+                        Type: "img", Style: "width:14rem; cursor:pointer;",
+                        Attributes: [{ Name: "src", Value: GlobalUtilities.icon("support.png") }],
+                        Properties: [{ Name: "onclick", Value: function () { jQuery(this.parentNode).fadeOut(500); } }]
+                    }]
+                }], document.body);
+                */
+            }
+        });
+    </script>
+</asp:Content>

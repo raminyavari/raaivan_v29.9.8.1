@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configurationSnapshot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:schemas-microsoft-com:xml-wcfconfigurationsnapshot">
+  <behaviors />
+  <bindings>
+    <binding digest="System.ServiceModel.Configuration.BasicHttpBindingElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089:&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data name=&quot;ahdaUtility15Soap&quot; /&gt;" bindingType="basicHttpBinding" name="ahdaUtility15Soap" />
+  </bindings>
+  <endpoints>
+    <endpoint normalizedDigest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://sigma.isfahan.ir/_layouts/15/ahdaUtility15/ahdaUtility15.asmx&quot; binding=&quot;basicHttpBinding&quot; bindingConfiguration=&quot;ahdaUtility15Soap&quot; contract=&quot;EsfahanProjects.ahdaUtility15Soap&quot; name=&quot;ahdaUtility15Soap&quot; /&gt;" digest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://sigma.isfahan.ir/_layouts/15/ahdaUtility15/ahdaUtility15.asmx&quot; binding=&quot;basicHttpBinding&quot; bindingConfiguration=&quot;ahdaUtility15Soap&quot; contract=&quot;EsfahanProjects.ahdaUtility15Soap&quot; name=&quot;ahdaUtility15Soap&quot; /&gt;" contractName="EsfahanProjects.ahdaUtility15Soap" name="ahdaUtility15Soap" />
+  </endpoints>
+</configurationSnapshot>

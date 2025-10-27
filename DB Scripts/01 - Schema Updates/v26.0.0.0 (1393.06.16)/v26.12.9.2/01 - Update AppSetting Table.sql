@@ -1,0 +1,14 @@
+USE [EKM_App]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+UPDATE [dbo].[AppSetting]
+	SET [Version] = 'v26.12.9.2' -- 13940631
+GO

@@ -1,0 +1,30 @@
+USE [EKM_App]
+GO
+
+
+ALTER TABLE [dbo].[NTFN_NotificationMessageTemplates]
+DROP CONSTRAINT [UK_NTFN_NotificationMessageTemplates]
+GO
+
+ALTER TABLE [dbo].[NTFN_NotificationMessageTemplates] ADD  CONSTRAINT [UK_NTFN_NotificationMessageTemplates] UNIQUE NONCLUSTERED 
+(
+	[ApplicationID] ASC,
+	[Action] ASC,
+	[SubjectType] ASC,
+	[UserStatus] ASC,
+	[Media] ASC,
+	[Lang] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
+
+ALTER TABLE [dbo].[CN_Properties]
+DROP CONSTRAINT [UK_Properties_Name]
+GO
+
+ALTER TABLE [dbo].[CN_Properties] ADD  CONSTRAINT [UK_CN_Properties_Name] UNIQUE NONCLUSTERED 
+(
+	[ApplicationID] ASC,
+	[Name] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO

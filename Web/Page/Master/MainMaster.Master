@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMaster.master.cs" Inherits="RaaiVan.Web.Page.Master.MainMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+    <head runat="server">
+        <title></title>
+
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <meta name="fragment" content="!" >
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.7" />
+
+        <link rel="stylesheet" type="text/css" href="../../Script/jQuery/TextNTags/jquery-textntags.css" />
+        <link rel="stylesheet" type="text/css" href="../../Script/jQuery/Tooltip/style.css" />
+        <link rel="Stylesheet" type="text/css" href="../../Script/jQuery/nanoScroller/nanoscroller.css" />
+        <link rel="stylesheet" type="text/css" href="../../Fonts/font-awesome.css"/>
+        <link rel="stylesheet" type="text/css" href="../../Script/Foundation/foundation.css"/>
+        <link rel="stylesheet" type="text/css" href="../../CSS/foundation-fix.css"/>
+        <link rel="stylesheet" type="text/css" href="../../CSS/input-anim-label.css"/>
+
+        <script type="text/javascript" src="../../Script/jQuery/jquery.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../../Script/jQuery/jquery.mb.browser.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../../Script/jQuery/jquery.mousewheel.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../../Script/jQuery/jquery.blockUI.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../../Script/Foundation/foundation.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../../Script/Foundation/what-input.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../../Script/API/RVRequest.js?v=29"></script>
+        <script type="text/javascript" src="../../Script/TextEncoding.js"></script>
+        <script type="text/javascript" src="../../Script/GlobalUtilities.js?v=29"></script>
+        <script type="text/javascript" src="../../Script/OverrideAlerts.js?v=29"></script>
+        <script type="text/javascript" src="../../Script/Lib/underscore.js"></script>
+        <script type="text/javascript" src="../../Script/jQuery/TextNTags/jquery-textntags.js"></script>
+        <script type="text/javascript" src="../../Script/AdvancedTextArea/AdvancedTextArea.js?v=29"></script>
+        <script type="text/javascript" src="../../Script/jQuery/Tooltip/jquery.tooltip.js"></script>
+        <script type="text/javascript" src="../../Script/jQuery/nanoScroller/jquery.nanoscroller.js"></script>
+        <script type="text/javascript" src="../../Script/jQuery/nanoScroller/overthrow.js"></script>
+        <script type="text/javascript" src="../../Script/json2.js"></script>
+        <script type="text/javascript" src="../../Script/AutoSuggest/autosuggest.js?v=29"></script>
+        <script type="text/javascript" src="../../Script/RaaiVanHelp/HelpUtils.js?v=29"></script>
+
+        <link rel='shortcut icon' href='../../api/rv/fav_icon' />
+        <link rel="stylesheet" type="text/css" href="../../api/rv/theme"/>
+        <link rel="stylesheet" type="text/css" href="../../api/rv/css_direction"/>
+        <script type="text/javascript" src="../../api/rv/global_params?Set=true"></script>
+        <script type="text/javascript" src="../../api/rv/language_dictionary"></script>
+        <script type="text/javascript" src="../../api/rv/language_dictionary?Help=true"></script>
+        <script type="text/javascript" src="../../api/rv/jquery_signalr?v=29"></script>
+        <script type="text/javascript" src="../../signalr/hubs?v=29"></script>
+        <script type="text/javascript" src="../../api/rv/raaivan_hub_js?v=29"></script>
+
+        <!-- <script type="text/javascript" src="../../Script/lottie-player.js"></script> -->
+
+        <script type="text/javascript" src="../../Script/API/UsersAPI.js?v=29"></script>
+        <script type="text/javascript" src="../../Script/API/RVAPI.js?v=29"></script>
+        <script type="text/javascript" src="../../Script/API/PrivacyAPI.js?v=29"></script>
+
+        <script type="text/javascript" src="../../Script/USR/MasterPageBuilder.js?v=29"></script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function () {
+                jQuery(document).foundation();
+            
+                for (var i in ((window.RVGlobal || {}).Modules || {}))
+                    RVGlobal.Modules[String(i).toLowerCase()] = RVGlobal.Modules[i];
+            });
+        </script>
+    </head>
+
+    <body class="Direction TextAlign">
+        <form id="frmMainMaster" runat="server">
+            <asp:ContentPlaceHolder ID="MainMasterBodySection" runat="server"></asp:ContentPlaceHolder>
+
+            <script type="text/javascript">
+                GlobalUtilities.cheadget("sudoku", "gesi", "ramin", "fliptext", "tag",
+                    { Name: "themebuilder", Alias: "thmbuilder" }, { Name: "updatefriendsuggestions", Alias: "updtfsuggest" });
+
+                window.onfocus = window.onblur = function (e) { window.HasFocus = (e || event).type === "focus"; }
+
+                //Change form's onsubmit such that it dosn't refresh on enter!
+                var __MASTER_FORM = document.getElementById("frmMainMaster");
+                __MASTER_FORM.onkeydown = __SET_MASTER_FORM_ONKEYDOWN;
+                function __SET_MASTER_FORM_ONKEYDOWN(event) { event = event || window.event; if (event.keyCode == 13) __MASTER_FORM.onsubmit = __MASTER_FORM_RETURN_FALSE; }
+                function __RESET_MASTER_FORM_ONSUBMIT() { __MASTER_FORM.onsubmit = __MASTER_FORM_RETURN_TRUE; }
+                function __MASTER_FORM_RETURN_TRUE(event) { return true; }
+                function __MASTER_FORM_RETURN_FALSE(event) { setTimeout(__RESET_MASTER_FORM_ONSUBMIT, 10); return false; }
+		        //end of 'Change form's onsubmit...
+            </script>
+        </form>
+    </body>
+</html>

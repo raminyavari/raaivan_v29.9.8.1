@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Nodes nodetype="[NodeTypeAdditionalID]">
+  <Node name="[NodeName]" id="[ExternalID from your systems]" parentid="[ExternalID from your systems]"></Node>
+  <Node name="[NodeName]" id="[ExternalID from your systems]" parentid="[ExternalID from your systems]"></Node>
+</Nodes>

@@ -1,0 +1,38 @@
+USE [EKM_App]
+GO
+
+
+CREATE TABLE [dbo].[USR_FriendSuggestions](
+	SuggestionID			UNIQUEIDENTIFIER NOT NULL,
+	UserID1					UNIQUEIDENTIFIER NOT NULL,
+	UserID2					UNIQUEIDENTIFIER NOT NULL,
+	Score					INT NOT NULL
+CONSTRAINT [PK_USR_FriendSuggestions] PRIMARY KEY CLUSTERED
+(
+	SuggestionID ASC 
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[USR_FriendSuggestions] ADD  CONSTRAINT [UK_USR_FriendSuggestions] UNIQUE NONCLUSTERED 
+(
+	[UserID1]	ASC,
+	[UserID2]	ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
+
+ALTER TABLE [dbo].[USR_FriendSuggestions]  WITH CHECK ADD  CONSTRAINT [FK_USR_FriendSuggestions_aspnet_Users_UserID1] FOREIGN KEY([UserID1])
+REFERENCES [dbo].[aspnet_Users] ([UserID])
+GO
+
+ALTER TABLE [dbo].[USR_FriendSuggestions] CHECK CONSTRAINT [FK_USR_FriendSuggestions_aspnet_Users_UserID1]
+GO
+
+
+ALTER TABLE [dbo].[USR_FriendSuggestions]  WITH CHECK ADD  CONSTRAINT [FK_USR_FriendSuggestions_aspnet_Users_UserID2] FOREIGN KEY([UserID2])
+REFERENCES [dbo].[aspnet_Users] ([UserID])
+GO
+
+ALTER TABLE [dbo].[USR_FriendSuggestions] CHECK CONSTRAINT [FK_USR_FriendSuggestions_aspnet_Users_UserID2]
+GO

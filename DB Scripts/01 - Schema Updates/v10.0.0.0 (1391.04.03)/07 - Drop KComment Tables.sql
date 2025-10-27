@@ -1,0 +1,15 @@
+USE [EKM_App]
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+DROP TABLE [dbo].[KCommentVotes]
+GO
+
+DROP TABLE [dbo].[KComments]
+GO
+

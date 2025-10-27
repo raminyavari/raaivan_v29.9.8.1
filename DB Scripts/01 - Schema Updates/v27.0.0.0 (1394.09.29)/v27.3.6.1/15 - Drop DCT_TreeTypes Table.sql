@@ -1,0 +1,14 @@
+USE [EKM_App]
+GO
+
+
+ALTER TABLE [dbo].[DCT_Trees]
+DROP CONSTRAINT FK_DCT_Trees_DCT_TreeTypes
+GO
+
+ALTER TABLE [dbo].[DCT_Trees]
+DROP COLUMN TreeTypeID
+GO
+
+DROP TABLE [dbo].[DCT_TreeTypes]
+GO

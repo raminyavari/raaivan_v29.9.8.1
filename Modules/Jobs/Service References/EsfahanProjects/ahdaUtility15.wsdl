@@ -1,0 +1,1356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAppID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSiteListCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSiteListCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSiteListCountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentUser2">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCurrentUser2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentUser2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnCodeURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnCodeURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnCodeURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncodeURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncodeURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EncodeURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="listName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="viewID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="viewFields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rowLimit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryOptions" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="webID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListItemsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateListItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="listName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="updates" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateListItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateListItemsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInfoPathDoc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFilename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sContentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInfoPathDocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateInfoPathDocResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFilename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sContentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateDocumentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentIDfromURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strWebURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFileURL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentIDfromURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDocumentIDfromURLResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountMaxMinAvg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsLibrary" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="WhereQuery" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ValCol" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountMaxMinAvgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CountMaxMinAvgResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountMaxMinAvgUN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsLibrary" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="WhereQuery" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ValCol" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountMaxMinAvgUNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CountMaxMinAvgUNResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetItemPermission">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="siteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="listName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="itemID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="stopInherit" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="removePrevPerm" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="readOnly" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="canEdit" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetItemPermissionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetItemPermissionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveItemPermission">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="siteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="listName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="itemID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveItemPermissionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveItemPermissionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetItemPermissionGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="siteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="listName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="itemID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="stopInherit" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="removePrevPerm" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="readOnly" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="canEdit" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetItemPermissionGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetItemPermissionGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveItemPermissionGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="siteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="listName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="itemID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveItemPermissionGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveItemPermissionGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySQL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConnectionString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySQLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuerySQLResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListItemsSS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="listName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="viewID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="viewFields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rowLimit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryOptions" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="webID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListItemsSSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListItemsSSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateListItemsSS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="listName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="updates" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateListItemsSSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateListItemsSSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDocumentSS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFilename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sContentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateDocumentSSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateDocumentSSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySQL2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySQL2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuerySQL2Result">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TAI" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GCResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListItems2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fields" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListItems2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListItems2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListItems2UN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListItems2UNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListItems2UNResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListItemsJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fields" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListItemsJSONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListItemsJSONResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySQL3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConnectionString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySQL3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuerySQL3Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserItemEditPermission">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ItemID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserItemEditPermissionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserItemEditPermissionResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDisplayName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SiteURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDisplayNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDisplayNameResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAppIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppID" />
+  </wsdl:message>
+  <wsdl:message name="GetAppIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteListCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSiteListCount" />
+  </wsdl:message>
+  <wsdl:message name="GetSiteListCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSiteListCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentUser2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentUser2" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentUser2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentUser2Response" />
+  </wsdl:message>
+  <wsdl:message name="EnCodeURLSoapIn">
+    <wsdl:part name="parameters" element="tns:EnCodeURL" />
+  </wsdl:message>
+  <wsdl:message name="EnCodeURLSoapOut">
+    <wsdl:part name="parameters" element="tns:EnCodeURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="EncodeURLSoapIn">
+    <wsdl:part name="parameters" element="tns:EncodeURL" />
+  </wsdl:message>
+  <wsdl:message name="EncodeURLSoapOut">
+    <wsdl:part name="parameters" element="tns:EncodeURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListItems" />
+  </wsdl:message>
+  <wsdl:message name="GetListItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateListItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateListItems" />
+  </wsdl:message>
+  <wsdl:message name="UpdateListItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateListItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateInfoPathDocSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateInfoPathDoc" />
+  </wsdl:message>
+  <wsdl:message name="CreateInfoPathDocSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateInfoPathDocResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDocument" />
+  </wsdl:message>
+  <wsdl:message name="CreateDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentIDfromURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocumentIDfromURL" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentIDfromURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDocumentIDfromURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountMaxMinAvgSoapIn">
+    <wsdl:part name="parameters" element="tns:CountMaxMinAvg" />
+  </wsdl:message>
+  <wsdl:message name="CountMaxMinAvgSoapOut">
+    <wsdl:part name="parameters" element="tns:CountMaxMinAvgResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountMaxMinAvgUNSoapIn">
+    <wsdl:part name="parameters" element="tns:CountMaxMinAvgUN" />
+  </wsdl:message>
+  <wsdl:message name="CountMaxMinAvgUNSoapOut">
+    <wsdl:part name="parameters" element="tns:CountMaxMinAvgUNResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetItemPermissionSoapIn">
+    <wsdl:part name="parameters" element="tns:SetItemPermission" />
+  </wsdl:message>
+  <wsdl:message name="SetItemPermissionSoapOut">
+    <wsdl:part name="parameters" element="tns:SetItemPermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveItemPermissionSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveItemPermission" />
+  </wsdl:message>
+  <wsdl:message name="RemoveItemPermissionSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveItemPermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetItemPermissionGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:SetItemPermissionGroup" />
+  </wsdl:message>
+  <wsdl:message name="SetItemPermissionGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:SetItemPermissionGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveItemPermissionGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveItemPermissionGroup" />
+  </wsdl:message>
+  <wsdl:message name="RemoveItemPermissionGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveItemPermissionGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySQLSoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySQL" />
+  </wsdl:message>
+  <wsdl:message name="QuerySQLSoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySQLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListItemsSSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListItemsSS" />
+  </wsdl:message>
+  <wsdl:message name="GetListItemsSSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListItemsSSResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateListItemsSSSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateListItemsSS" />
+  </wsdl:message>
+  <wsdl:message name="UpdateListItemsSSSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateListItemsSSResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateDocumentSSSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateDocumentSS" />
+  </wsdl:message>
+  <wsdl:message name="CreateDocumentSSSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateDocumentSSResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySQL2SoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySQL2" />
+  </wsdl:message>
+  <wsdl:message name="QuerySQL2SoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySQL2Response" />
+  </wsdl:message>
+  <wsdl:message name="GCSoapIn">
+    <wsdl:part name="parameters" element="tns:GC" />
+  </wsdl:message>
+  <wsdl:message name="GCSoapOut">
+    <wsdl:part name="parameters" element="tns:GCResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListItems2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetListItems2" />
+  </wsdl:message>
+  <wsdl:message name="GetListItems2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetListItems2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetListItems2UNSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListItems2UN" />
+  </wsdl:message>
+  <wsdl:message name="GetListItems2UNSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListItems2UNResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListItemsJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListItemsJSON" />
+  </wsdl:message>
+  <wsdl:message name="GetListItemsJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListItemsJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySQL3SoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySQL3" />
+  </wsdl:message>
+  <wsdl:message name="QuerySQL3SoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySQL3Response" />
+  </wsdl:message>
+  <wsdl:message name="UserItemEditPermissionSoapIn">
+    <wsdl:part name="parameters" element="tns:UserItemEditPermission" />
+  </wsdl:message>
+  <wsdl:message name="UserItemEditPermissionSoapOut">
+    <wsdl:part name="parameters" element="tns:UserItemEditPermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDisplayNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDisplayName" />
+  </wsdl:message>
+  <wsdl:message name="GetDisplayNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDisplayNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ahdaUtility15Soap">
+    <wsdl:operation name="GetAppID">
+      <wsdl:input message="tns:GetAppIDSoapIn" />
+      <wsdl:output message="tns:GetAppIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteListCount">
+      <wsdl:input message="tns:GetSiteListCountSoapIn" />
+      <wsdl:output message="tns:GetSiteListCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser2">
+      <wsdl:input message="tns:GetCurrentUser2SoapIn" />
+      <wsdl:output message="tns:GetCurrentUser2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnCodeURL">
+      <wsdl:input message="tns:EnCodeURLSoapIn" />
+      <wsdl:output message="tns:EnCodeURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncodeURL">
+      <wsdl:input message="tns:EncodeURLSoapIn" />
+      <wsdl:output message="tns:EncodeURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListItems">
+      <wsdl:input message="tns:GetListItemsSoapIn" />
+      <wsdl:output message="tns:GetListItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateListItems">
+      <wsdl:input message="tns:UpdateListItemsSoapIn" />
+      <wsdl:output message="tns:UpdateListItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateInfoPathDoc">
+      <wsdl:input message="tns:CreateInfoPathDocSoapIn" />
+      <wsdl:output message="tns:CreateInfoPathDocSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocument">
+      <wsdl:input message="tns:CreateDocumentSoapIn" />
+      <wsdl:output message="tns:CreateDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentIDfromURL">
+      <wsdl:input message="tns:GetDocumentIDfromURLSoapIn" />
+      <wsdl:output message="tns:GetDocumentIDfromURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountMaxMinAvg">
+      <wsdl:input message="tns:CountMaxMinAvgSoapIn" />
+      <wsdl:output message="tns:CountMaxMinAvgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountMaxMinAvgUN">
+      <wsdl:input message="tns:CountMaxMinAvgUNSoapIn" />
+      <wsdl:output message="tns:CountMaxMinAvgUNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetItemPermission">
+      <wsdl:input message="tns:SetItemPermissionSoapIn" />
+      <wsdl:output message="tns:SetItemPermissionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveItemPermission">
+      <wsdl:input message="tns:RemoveItemPermissionSoapIn" />
+      <wsdl:output message="tns:RemoveItemPermissionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetItemPermissionGroup">
+      <wsdl:input message="tns:SetItemPermissionGroupSoapIn" />
+      <wsdl:output message="tns:SetItemPermissionGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveItemPermissionGroup">
+      <wsdl:input message="tns:RemoveItemPermissionGroupSoapIn" />
+      <wsdl:output message="tns:RemoveItemPermissionGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySQL">
+      <wsdl:input message="tns:QuerySQLSoapIn" />
+      <wsdl:output message="tns:QuerySQLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListItemsSS">
+      <wsdl:input message="tns:GetListItemsSSSoapIn" />
+      <wsdl:output message="tns:GetListItemsSSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateListItemsSS">
+      <wsdl:input message="tns:UpdateListItemsSSSoapIn" />
+      <wsdl:output message="tns:UpdateListItemsSSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentSS">
+      <wsdl:input message="tns:CreateDocumentSSSoapIn" />
+      <wsdl:output message="tns:CreateDocumentSSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySQL2">
+      <wsdl:input message="tns:QuerySQL2SoapIn" />
+      <wsdl:output message="tns:QuerySQL2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GC">
+      <wsdl:input message="tns:GCSoapIn" />
+      <wsdl:output message="tns:GCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListItems2">
+      <wsdl:input message="tns:GetListItems2SoapIn" />
+      <wsdl:output message="tns:GetListItems2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListItems2UN">
+      <wsdl:input message="tns:GetListItems2UNSoapIn" />
+      <wsdl:output message="tns:GetListItems2UNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListItemsJSON">
+      <wsdl:input message="tns:GetListItemsJSONSoapIn" />
+      <wsdl:output message="tns:GetListItemsJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySQL3">
+      <wsdl:input message="tns:QuerySQL3SoapIn" />
+      <wsdl:output message="tns:QuerySQL3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserItemEditPermission">
+      <wsdl:input message="tns:UserItemEditPermissionSoapIn" />
+      <wsdl:output message="tns:UserItemEditPermissionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayName">
+      <wsdl:input message="tns:GetDisplayNameSoapIn" />
+      <wsdl:output message="tns:GetDisplayNameSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ahdaUtility15Soap" type="tns:ahdaUtility15Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAppID">
+      <soap:operation soapAction="http://tempuri.org/GetAppID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteListCount">
+      <soap:operation soapAction="http://tempuri.org/GetSiteListCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser2">
+      <soap:operation soapAction="http://tempuri.org/GetCurrentUser2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnCodeURL">
+      <soap:operation soapAction="http://tempuri.org/EnCodeURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncodeURL">
+      <soap:operation soapAction="http://tempuri.org/EncodeURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListItems">
+      <soap:operation soapAction="http://tempuri.org/GetListItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateListItems">
+      <soap:operation soapAction="http://tempuri.org/UpdateListItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInfoPathDoc">
+      <soap:operation soapAction="http://tempuri.org/CreateInfoPathDoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocument">
+      <soap:operation soapAction="http://tempuri.org/CreateDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentIDfromURL">
+      <soap:operation soapAction="http://tempuri.org/GetDocumentIDfromURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountMaxMinAvg">
+      <soap:operation soapAction="http://tempuri.org/CountMaxMinAvg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountMaxMinAvgUN">
+      <soap:operation soapAction="http://tempuri.org/CountMaxMinAvgUN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetItemPermission">
+      <soap:operation soapAction="http://tempuri.org/SetItemPermission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveItemPermission">
+      <soap:operation soapAction="http://tempuri.org/RemoveItemPermission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetItemPermissionGroup">
+      <soap:operation soapAction="http://tempuri.org/SetItemPermissionGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveItemPermissionGroup">
+      <soap:operation soapAction="http://tempuri.org/RemoveItemPermissionGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySQL">
+      <soap:operation soapAction="http://tempuri.org/QuerySQL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListItemsSS">
+      <soap:operation soapAction="http://tempuri.org/GetListItemsSS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateListItemsSS">
+      <soap:operation soapAction="http://tempuri.org/UpdateListItemsSS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentSS">
+      <soap:operation soapAction="http://tempuri.org/CreateDocumentSS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySQL2">
+      <soap:operation soapAction="http://tempuri.org/QuerySQL2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GC">
+      <soap:operation soapAction="http://tempuri.org/GC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListItems2">
+      <soap:operation soapAction="http://tempuri.org/GetListItems2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListItems2UN">
+      <soap:operation soapAction="http://tempuri.org/GetListItems2UN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListItemsJSON">
+      <soap:operation soapAction="http://tempuri.org/GetListItemsJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySQL3">
+      <soap:operation soapAction="http://tempuri.org/QuerySQL3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserItemEditPermission">
+      <soap:operation soapAction="http://tempuri.org/UserItemEditPermission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayName">
+      <soap:operation soapAction="http://tempuri.org/GetDisplayName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ahdaUtility15Soap12" type="tns:ahdaUtility15Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAppID">
+      <soap12:operation soapAction="http://tempuri.org/GetAppID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteListCount">
+      <soap12:operation soapAction="http://tempuri.org/GetSiteListCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentUser2">
+      <soap12:operation soapAction="http://tempuri.org/GetCurrentUser2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnCodeURL">
+      <soap12:operation soapAction="http://tempuri.org/EnCodeURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncodeURL">
+      <soap12:operation soapAction="http://tempuri.org/EncodeURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListItems">
+      <soap12:operation soapAction="http://tempuri.org/GetListItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateListItems">
+      <soap12:operation soapAction="http://tempuri.org/UpdateListItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInfoPathDoc">
+      <soap12:operation soapAction="http://tempuri.org/CreateInfoPathDoc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocument">
+      <soap12:operation soapAction="http://tempuri.org/CreateDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentIDfromURL">
+      <soap12:operation soapAction="http://tempuri.org/GetDocumentIDfromURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountMaxMinAvg">
+      <soap12:operation soapAction="http://tempuri.org/CountMaxMinAvg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountMaxMinAvgUN">
+      <soap12:operation soapAction="http://tempuri.org/CountMaxMinAvgUN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetItemPermission">
+      <soap12:operation soapAction="http://tempuri.org/SetItemPermission" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveItemPermission">
+      <soap12:operation soapAction="http://tempuri.org/RemoveItemPermission" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetItemPermissionGroup">
+      <soap12:operation soapAction="http://tempuri.org/SetItemPermissionGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveItemPermissionGroup">
+      <soap12:operation soapAction="http://tempuri.org/RemoveItemPermissionGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySQL">
+      <soap12:operation soapAction="http://tempuri.org/QuerySQL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListItemsSS">
+      <soap12:operation soapAction="http://tempuri.org/GetListItemsSS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateListItemsSS">
+      <soap12:operation soapAction="http://tempuri.org/UpdateListItemsSS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentSS">
+      <soap12:operation soapAction="http://tempuri.org/CreateDocumentSS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySQL2">
+      <soap12:operation soapAction="http://tempuri.org/QuerySQL2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GC">
+      <soap12:operation soapAction="http://tempuri.org/GC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListItems2">
+      <soap12:operation soapAction="http://tempuri.org/GetListItems2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListItems2UN">
+      <soap12:operation soapAction="http://tempuri.org/GetListItems2UN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListItemsJSON">
+      <soap12:operation soapAction="http://tempuri.org/GetListItemsJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySQL3">
+      <soap12:operation soapAction="http://tempuri.org/QuerySQL3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserItemEditPermission">
+      <soap12:operation soapAction="http://tempuri.org/UserItemEditPermission" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDisplayName">
+      <soap12:operation soapAction="http://tempuri.org/GetDisplayName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ahdaUtility15">
+    <wsdl:port name="ahdaUtility15Soap" binding="tns:ahdaUtility15Soap">
+      <soap:address location="http://sigma.isfahan.ir/_layouts/15/ahdaUtility15/ahdaUtility15.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ahdaUtility15Soap12" binding="tns:ahdaUtility15Soap12">
+      <soap12:address location="http://sigma.isfahan.ir/_layouts/15/ahdaUtility15/ahdaUtility15.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
