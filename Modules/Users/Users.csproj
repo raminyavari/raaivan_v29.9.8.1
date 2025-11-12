@@ -87,10 +87,6 @@
       <Project>{2B4F83EF-6E5D-49B7-A54E-6C72D0B3B9A4}</Project>
       <Name>GlobalUtilities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Log\Log.csproj">
-      <Project>{6861294c-2a08-4c7b-9cdd-af2f9b3dd13c}</Project>
-      <Name>Log</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

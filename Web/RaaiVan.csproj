@@ -2481,10 +2481,6 @@
       <Project>{eb97c3a4-7d4a-47af-9ca1-3d56a075dd30}</Project>
       <Name>Knowledge</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Modules\Log\Log.csproj">
-      <Project>{6861294c-2a08-4c7b-9cdd-af2f9b3dd13c}</Project>
-      <Name>Log</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Modules\Messaging\Messaging.csproj">
       <Project>{61ba0b0d-b27b-49c4-bdd1-e9f54369b530}</Project>
       <Name>Messaging</Name>

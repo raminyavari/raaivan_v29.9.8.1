@@ -163,10 +163,6 @@
       <Project>{2b4f83ef-6e5d-49b7-a54e-6c72d0b3b9a4}</Project>
       <Name>GlobalUtilities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Log\Log.csproj">
-      <Project>{6861294c-2a08-4c7b-9cdd-af2f9b3dd13c}</Project>
-      <Name>Log</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Privacy\Privacy.csproj">
       <Project>{A9EC2A73-025C-4C50-975A-B44F0618F4B0}</Project>
       <Name>Privacy</Name>
