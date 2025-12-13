@@ -387,6 +387,7 @@
     <Content Include="Audio\notify.mp3" />
     <Content Include="Audio\notify.ogg" />
     <Content Include="Audio\notify.wav" />
+    <Content Include="bin\Hid_Dll.dll" />
     <Content Include="bin\System.IO.FileSystem.Primitives.dll" />
     <Content Include="CSS\font-face\iran-sans.css" />
     <Content Include="CSS\font-face\roboto.css" />
